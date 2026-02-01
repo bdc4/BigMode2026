@@ -1,2 +1,2 @@
-bullet_speed = 12;
+bullet_speed = 36;
 life = 90; // frames

@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":true,
   "spriteId":{
-    "name":"sPlayer",
-    "path":"sprites/sPlayer/sPlayer.yy",
+    "name":"sPizzaDog",
+    "path":"sprites/sPizzaDog/sPizzaDog.yy",
   },
   "spriteMaskId":null,
   "visible":true,

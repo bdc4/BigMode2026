@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sBullet",
-    "path":"sprites/sBullet/sBullet.yy",
+    "name":"sPizza",
+    "path":"sprites/sPizza/sPizza.yy",
   },
   "spriteMaskId":null,
   "visible":true,

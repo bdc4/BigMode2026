@@ -17,6 +17,10 @@ drag_jitter = 0.02;      // +/- range (try 0.005 to 0.03)
 drag_smooth = 0.10;      // 0..1, higher = quicker changes
 drag_cur = drag_base;
 
+bounce_loss = 0.8; // 1 = perfect bounce, 0.5 = very soft
+min_bounce_speed = 0.2; // below this, stop bouncing
+
+
 
 // If your sprite points UP when image_angle=0 visually, set this to -90.
 // If your sprite points RIGHT when image_angle=0, set this to 0.

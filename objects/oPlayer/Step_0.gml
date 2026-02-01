@@ -39,8 +39,56 @@ if (vlen > max_speed) {
 }
 
 // --- Move ---
-x += hsp;
-y += vsp;
+/// --- Corner-safe move + bounce (sub-stepped) ---
+var step_size = 1; // 1 px is safest; 2–4 is faster but less accurate
+
+// How many substeps needed for this frame?
+var steps = ceil(max(abs(hsp), abs(vsp)) / step_size);
+if (steps < 1) steps = 1;
+
+var dx = hsp / steps;
+var dy = vsp / steps;
+
+for (var i = 0; i < steps; i++)
+{
+    // Move X
+    x += dx;
+    var hit = instance_place(x, y, all);
+    if (hit != noone && hit.solid) {
+        x -= dx;
+
+        // bounce X and recompute remaining dx
+        hsp = -hsp * bounce_loss;
+        if (abs(hsp) < min_bounce_speed) hsp = 0;
+
+        dx = hsp / steps;
+    }
+
+    // Move Y
+    y += dy;
+    hit = instance_place(x, y, all);
+    if (hit != noone && hit.solid) {
+        y -= dy;
+
+        // bounce Y and recompute remaining dy
+        vsp = -vsp * bounce_loss;
+        if (abs(vsp) < min_bounce_speed) vsp = 0;
+
+        dy = vsp / steps;
+    }
+}
+
+// Emergency unstick (rare but good)
+var hit = instance_place(x, y, all);
+var tries = 0;
+while (hit != noone && hit.solid && tries < 16) {
+    // push out opposite current movement
+    x -= sign(hsp);
+    y -= sign(vsp);
+    hit = instance_place(x, y, all);
+    tries++;
+}
+
 
 // --- Smooth sprite rotation toward facing 
 var diff = angle_difference(facing, visual_facing);
@@ -89,3 +137,16 @@ camera_set_view_pos(
     y - new_h * 0.5
 );
 
+// Fire (example: Left Mouse or Shift)
+if (mouse_check_button_pressed(mb_left) || keyboard_check_pressed(vk_shift)) {
+
+    var fire_dir = facing + tip_angle_offset;
+
+    // Spawn from the "tip" of the car
+    var muzzle_dist = 16;
+    var bx = x + lengthdir_x(muzzle_dist, fire_dir);
+    var by = y + lengthdir_y(muzzle_dist, fire_dir);
+
+    var b = instance_create_layer(bx, by, layer, oBullet);
+    b.direction = fire_dir;
+}

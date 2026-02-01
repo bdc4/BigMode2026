@@ -31,6 +31,7 @@
     {"id":{"name":"Script2","path":"scripts/Script2/Script2.yy",},},
     {"id":{"name":"sBuildingMask","path":"sprites/sBuildingMask/sBuildingMask.yy",},},
     {"id":{"name":"sBullet","path":"sprites/sBullet/sBullet.yy",},},
+    {"id":{"name":"sPizzaDog","path":"sprites/sPizzaDog/sPizzaDog.yy",},},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},},
     {"id":{"name":"sSmokePuff","path":"sprites/sSmokePuff/sSmokePuff.yy",},},
   ],

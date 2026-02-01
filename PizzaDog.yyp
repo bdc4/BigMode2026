@@ -33,6 +33,8 @@
     {"id":{"name":"sBullet","path":"sprites/sBullet/sBullet.yy",},},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},},
     {"id":{"name":"sSmokePuff","path":"sprites/sSmokePuff/sSmokePuff.yy",},},
+    {"id":{"name":"sTownSheet","path":"sprites/sTownSheet/sTownSheet.yy",},},
+    {"id":{"name":"tsTown","path":"tilesets/tsTown/tsTown.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",

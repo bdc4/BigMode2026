@@ -1,7 +1,7 @@
 /// oWorldGen : Create
 randomize();
 
-var CELL = 32;
+var CELL = sprite_get_width(sBuildingMask);
 
 // Grid dimensions in cells
 gw = room_width div CELL;

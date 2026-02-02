@@ -1,13 +1,57 @@
 /// oPlayer : Step
-/// Driving + effects + guaranteed no-overlap with solids
+/// Driving + effects + hard no-overlap + crash lock + high-speed spin-out
+/// NEW: bounce launches player perpendicular away from the wall
 
 // ------------------------------------------------------------
-// INPUT
+// Helper: launch away perpendicular to the wall (AABB normal)
 // ------------------------------------------------------------
-var throttle = keyboard_check(vk_space);
+function bounce_launch_away(_hit, _impact_speed)
+{
+    // Player bbox (current)
+    var pL = bbox_left,  pR = bbox_right, pT = bbox_top, pB = bbox_bottom;
 
-var turn = (keyboard_check(vk_left)  || keyboard_check(ord("A")))
+    // Solid bbox
+    var sL = _hit.bbox_left, sR = _hit.bbox_right, sT = _hit.bbox_top, sB = _hit.bbox_bottom;
+
+    // Overlaps (penetration depth)
+    var oL = pR - sL;
+    var oR = sR - pL;
+    var oT = pB - sT;
+    var oB = sB - pT;
+
+    // Choose smallest push => wall normal
+    var mino = min(min(oL, oR), min(oT, oB));
+
+    var nx = 0, ny = 0;
+    var push = 1;
+
+    if (mino == oL) { nx = -1; x -= oL + push; }
+    else if (mino == oR) { nx =  1; x += oR + push; }
+    else if (mino == oT) { ny = -1; y -= oT + push; }
+    else { ny =  1; y += oB + push; }
+
+    // Launch straight out
+    var out_speed = max(_impact_speed, min_bounce_speed) * bounce_loss;
+
+    hsp = nx * out_speed;
+    vsp = ny * out_speed;
+}
+
+// ------------------------------------------------------------
+// INPUT (disabled during crash lock / spin-out)
+// ------------------------------------------------------------
+var spinning = (spin_time > 0);
+var locked = (crash_timer > 0) || spinning;
+
+var throttle = (!locked) && keyboard_check(vk_space);
+
+var turn = 0;
+if (!locked) {
+    turn = (keyboard_check(vk_left)  || keyboard_check(ord("A")))
          - (keyboard_check(vk_right) || keyboard_check(ord("D")));
+}
+
+if (crash_timer > 0) crash_timer -= 1;
 
 // ------------------------------------------------------------
 // TURNING (changes facing)
@@ -49,14 +93,10 @@ if (vlen > max_speed) {
 }
 
 // ------------------------------------------------------------
-// MOVE (sub-stepped) + BOUNCE BACK (NO FACING CHANGE)
-// with HARD NO-OVERLAP GUARANTEE
+// MOVE (sub-stepped) + perpendicular launch bounce + hard no-overlap guarantee
 // ------------------------------------------------------------
 var crashed = false;
-
-// last known good position
-var safe_x = x;
-var safe_y = y;
+var impact_vlen = vlen; // keep pre-collision speed for crash effects
 
 var step_size = 1;
 var steps = ceil(max(abs(hsp), abs(vsp)) / step_size);
@@ -72,13 +112,15 @@ for (var i = 0; i < steps; i++)
     var hit = instance_place(x, y, all);
     if (hit != noone && hit.solid) {
         crashed = true;
-
         x -= dx;
 
-        // bounce X
-        hsp = -hsp * bounce_loss;
-        if (abs(hsp) < min_bounce_speed) hsp = 0;
+        // launch away perpendicular to wall
+        var impact_speed = point_distance(0, 0, hsp, vsp);
+        bounce_launch_away(hit, impact_speed);
+
+        // recompute substep deltas using new velocity
         dx = hsp / steps;
+        dy = vsp / steps;
     }
 
     // --- Y ---
@@ -86,41 +128,77 @@ for (var i = 0; i < steps; i++)
     hit = instance_place(x, y, all);
     if (hit != noone && hit.solid) {
         crashed = true;
-
         y -= dy;
 
-        // bounce Y
-        vsp = -vsp * bounce_loss;
-        if (abs(vsp) < min_bounce_speed) vsp = 0;
+        // launch away perpendicular to wall
+        var impact_speed2 = point_distance(0, 0, hsp, vsp);
+        bounce_launch_away(hit, impact_speed2);
+
+        dx = hsp / steps;
         dy = vsp / steps;
     }
-
-    // update safe position
-    var check = instance_place(x, y, all);
-    if (check == noone || !check.solid) {
-        safe_x = x;
-        safe_y = y;
-    }
 }
 
-// Never end inside solids
-var final_hit = instance_place(x, y, all);
-if (final_hit != noone && final_hit.solid) {
-    x = safe_x;
-    y = safe_y;
-    hsp = 0;
-    vsp = 0;
+// Never end inside solids — if still overlapping, launch away using the same normal logic
+var final_hit = collision_rectangle(
+    bbox_left, bbox_top, bbox_right, bbox_bottom,
+    all, false, true
+);
+
+if (final_hit != noone && final_hit.solid)
+{
     crashed = true;
+    var impact_speed3 = max(impact_vlen, min_bounce_speed);
+    bounce_launch_away(final_hit, impact_speed3);
 }
 
-// Optional: add a little "thud" slowdown on crash (feels good)
-if (crashed) {
+// ------------------------------------------------------------
+// CRASH EFFECTS (lock controls; spin-out only at high speed)
+// ------------------------------------------------------------
+if (crashed)
+{
+    if (crash_timer <= 0) crash_timer = crash_lock_frames;
+
+    // flip heading by impact ratio (0..180)
+    var r = clamp(impact_vlen / max_speed, 0, 1);
+    var flip = 180 * r;
+    facing = (facing + flip) mod 360;
+
+    // high-speed spin-out only (timer-based ~1 second)
+    var spin_threshold = 0.75;
+    if (r >= spin_threshold && spin_time <= 0) {
+        var t = clamp((r - spin_threshold) / (1 - spin_threshold), 0, 1);
+
+        spin_time = spin_time_max;
+        spin_dir = choose(-1, 1);
+
+        // aggressive (tune)
+        spin_start_rate = lerp(18, 60, t);
+    }
+
+    // optional "thud" feel (affects the bounce-launch speed slightly after)
     hsp *= 0.85;
     vsp *= 0.85;
 }
 
-// Recompute vlen after movement changes
+// Recompute vlen after movement/collision changes
 vlen = point_distance(0, 0, hsp, vsp);
+
+// ------------------------------------------------------------
+// SPIN-OUT UPDATE (auto-rotate; controls remain locked while active)
+// ------------------------------------------------------------
+if (spin_time > 0) {
+    var u = spin_time / spin_time_max; // 1..0
+    var rate = spin_start_rate * u;    // ease out
+
+    facing = (facing + spin_dir * rate) mod 360;
+
+    spin_time -= 1;
+    if (spin_time <= 0) {
+        spin_time = 0;
+        spin_start_rate = 0;
+    }
+}
 
 // ------------------------------------------------------------
 // SMOOTH SPRITE ROTATION
@@ -137,7 +215,6 @@ is_moving = (vlen > 0.1);
 // SMOKE TRAIL AT NEAR MAX SPEED
 // ------------------------------------------------------------
 var at_max = (vlen >= max_speed * 0.95);
-
 if (at_max) {
     if (current_time div 60 != smoke_tick) {
         smoke_tick = current_time div 60;
@@ -169,16 +246,18 @@ camera_set_view_size(cam_id, new_w, new_h);
 camera_set_view_pos(cam_id, x - new_w * 0.5, y - new_h * 0.5);
 
 // ------------------------------------------------------------
-// FIRE BULLET
+// FIRE BULLET (disabled while locked/spinning)
 // ------------------------------------------------------------
-if (mouse_check_button_pressed(mb_left) || keyboard_check_pressed(vk_shift)) {
+if (!locked) {
+    if (mouse_check_button_pressed(mb_left) || keyboard_check_pressed(vk_shift)) {
 
-    var fire_dir = facing + tip_angle_offset;
+        var fire_dir = facing + tip_angle_offset;
 
-    var muzzle_dist = 16;
-    var bx = x + lengthdir_x(muzzle_dist, fire_dir);
-    var by = y + lengthdir_y(muzzle_dist, fire_dir);
+        var muzzle_dist = 16;
+        var bx = x + lengthdir_x(muzzle_dist, fire_dir);
+        var by = y + lengthdir_y(muzzle_dist, fire_dir);
 
-    var b = instance_create_layer(bx, by, layer, oBullet);
-    b.direction = fire_dir;
+        var b = instance_create_layer(bx, by, layer, oBullet);
+        b.direction = fire_dir;
+    }
 }

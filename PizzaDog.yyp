@@ -21,6 +21,7 @@
   },
   "name":"PizzaDog",
   "resources":[
+    {"id":{"name":"oBreakable","path":"objects/oBreakable/oBreakable.yy",},},
     {"id":{"name":"oBuilding","path":"objects/oBuilding/oBuilding.yy",},},
     {"id":{"name":"oBullet","path":"objects/oBullet/oBullet.yy",},},
     {"id":{"name":"oGameController","path":"objects/oGameController/oGameController.yy",},},
@@ -34,7 +35,7 @@
     {"id":{"name":"sBuildingMask","path":"sprites/sBuildingMask/sBuildingMask.yy",},},
     {"id":{"name":"sBullet","path":"sprites/sBullet/sBullet.yy",},},
     {"id":{"name":"sFireHydrant","path":"sprites/sFireHydrant/sFireHydrant.yy",},},
-    {"id":{"name":"sFireHydrantBroken","path":"sprites/sFireHydrantBroken/sFireHydrantBroken.yy",},},
+    {"id":{"name":"sFireHydrantBusted","path":"sprites/sFireHydrantBusted/sFireHydrantBusted.yy",},},
     {"id":{"name":"sMailbox","path":"sprites/sMailbox/sMailbox.yy",},},
     {"id":{"name":"sMailboxBusted","path":"sprites/sMailboxBusted/sMailboxBusted.yy",},},
     {"id":{"name":"sPizza","path":"sprites/sPizza/sPizza.yy",},},

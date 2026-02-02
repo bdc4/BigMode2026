@@ -18,9 +18,9 @@ ds_grid_clear(occ, 0);
 var attempts = 800;           // higher = denser / more tries
 var place_chance = 0.65;      // chance an attempt actually places something
 
-var min_w = 4;                // building width in cells
+var min_w = 3;                // building width in cells
 var max_w = 16;
-var min_h = 4;                // building height in cells
+var min_h = 3;                // building height in cells
 var max_h = 16;
 
 var padding = 4;              // empty cells around buildings (0..2 feels good)
@@ -37,6 +37,7 @@ function rect_is_free(x0, y0, w, h, pad)
     for (var xx = ax0; xx <= ax1; xx++)
     {
         if (occ[# xx, yy] == 1) return false;
+		if (collision_rectangle(ax0,ay0,ax1,ay1,oPlayer,false,true)) return false;
     }
     return true;
 }
@@ -73,8 +74,14 @@ for (var i = 0; i < attempts; i++)
     var px = cx * CELL;
     var py = cy * CELL;
 
-    // Create building
-    var b = instance_create_layer(px, py, "Instances", oBuilding);
+    // Create breakable or building
+    var b = noone;
+	if (bw < 5 && bh < 5) {
+		b = instance_create_layer(px, py, "Instances", oBreakable);
+	}
+	else {
+		b = instance_create_layer(px, py, "Instances", oBuilding);
+	}
 
     // Store size (useful for collision, drawing, etc.)
     b.grid_w = bw;
@@ -86,7 +93,8 @@ for (var i = 0; i < attempts; i++)
     b.image_xscale = bw;
     b.image_yscale = bh;
 	
-	ds_list_add(global.buildings, b);
+	
+	if (b.object_index == oBuilding) ds_list_add(global.buildings, b);
 }
 
 // cleanup if you don't need it after generation

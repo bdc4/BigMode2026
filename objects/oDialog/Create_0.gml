@@ -21,19 +21,32 @@ advance_key = vk_space;
 auto_advance_time = 90; // frames per line (90 = 1.5s at 60fps)
 line_timer = 0;
 
+portrait_sprite = noone;
+portrait_index  = 0;     // subimage
+portrait_pad    = 10;
+portrait_size   = 96;    // GUI pixels (square)
 
-function dialog_show(_speaker, _text)
+portrait_anim = true;
+portrait_fps = 6;        // frames per second for the portrait
+portrait_frame = 0;      // float so it can advance smoothly
+
+
+function dialog_show(_speaker, _text, _portrait_sprite, _portrait_index)
 {
     active = true;
     speaker = _speaker;
     text = _text;
 
-    // Simple line split (manual wrap later if you want)
     lines = string_split(text, "\n");
     line_index = 0;
 
     shown_chars = 0;
+    line_timer = 0;
+
+    portrait_sprite = _portrait_sprite;
+    portrait_index  = _portrait_index;
 }
+
 
 function dialog_get()
 {
@@ -47,5 +60,6 @@ function dialog_get()
 
 // TESTING
 var d = dialog_get();
-with (d) dialog_show("Shopkeeper", "Hey! Watch the paint.\nNeed a delivery job?");
+d.dialog_show("Pizza Boss", "You're late.\nDeliver the pizza posthaste!", sPizzaDogPortrait, 0);
+
 

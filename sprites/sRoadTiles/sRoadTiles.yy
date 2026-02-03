@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"PizzaDog",
-    "path":"PizzaDog.yyp",
+    "name":"Driveable",
+    "path":"folders/Sprites/Driveable.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

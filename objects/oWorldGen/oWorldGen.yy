@@ -8,8 +8,8 @@
   "name":"oWorldGen",
   "overriddenProperties":[],
   "parent":{
-    "name":"PizzaDog",
-    "path":"PizzaDog.yyp",
+    "name":"Objects",
+    "path":"folders/Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,

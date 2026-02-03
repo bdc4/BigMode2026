@@ -69,6 +69,6 @@ spin_start_rate = 0;  // deg/frame at start
 // drag
 road_drag_extra = 0.12;  // additional drag when off-road
 road_check_radius = 0;   // 0 = point check; try 8 for a small area
-road_layer_id = layer_get_id("DrivableMask");
+road_layer_id = layer_get_id("Driveable");
 road_map_id = layer_tilemap_get_id(road_layer_id);
 

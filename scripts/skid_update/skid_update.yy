@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"Script1",
+  "%Name":"skid_update",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"Script1",
+  "name":"skid_update",
   "parent":{
-    "name":"PizzaDog",
-    "path":"PizzaDog.yyp",
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

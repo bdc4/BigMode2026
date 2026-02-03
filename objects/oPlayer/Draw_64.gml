@@ -1,5 +1,5 @@
 /// oPlayer : Draw GUI
-if (!instance_exists(global.target_building)) exit;
+if (!variable_global_exists(global.target_building) || !instance_exists(global.target_building)) exit;
 
 // --- Camera view in world space ---
 var cam = view_camera[0];

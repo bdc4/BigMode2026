@@ -2,7 +2,7 @@
   "$GMSprite":"v2",
   "%Name":"sSchool",
   "bboxMode":0,
-  "bbox_bottom":439,
+  "bbox_bottom":431,
   "bbox_left":11,
   "bbox_right":1021,
   "bbox_top":11,

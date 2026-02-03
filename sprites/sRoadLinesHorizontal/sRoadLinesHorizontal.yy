@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Roads and Sidewalks",
-    "path":"folders/Sprites/Roads and Sidewalks.yy",
+    "name":"Driveable",
+    "path":"folders/Sprites/Driveable.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

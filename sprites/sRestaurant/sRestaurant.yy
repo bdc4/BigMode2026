@@ -2,9 +2,9 @@
   "$GMSprite":"v2",
   "%Name":"sRestaurant",
   "bboxMode":0,
-  "bbox_bottom":0,
+  "bbox_bottom":255,
   "bbox_left":0,
-  "bbox_right":0,
+  "bbox_right":511,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -16,7 +16,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":64,
+  "height":256,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"9c0e9444-394d-441f-916f-fd6aa3e45ca9","blendMode":0,"displayName":"default","isLocked":false,"name":"9c0e9444-394d-441f-916f-fd6aa3e45ca9","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":64,
+  "width":512,
 }

@@ -37,6 +37,23 @@ function bounce_launch_away(_hit, _impact_speed)
     vsp = ny * out_speed;
 }
 
+function is_on_drivable()
+{
+    var cx = (bbox_left + bbox_right) * 0.5;
+    var cy = (bbox_top + bbox_bottom) * 0.5;
+
+    // sample center + 4 corners
+    if (tilemap_get_at_pixel(road_map_id, cx, cy) != 0) return true;
+    if (tilemap_get_at_pixel(road_map_id, bbox_left,  bbox_top)    != 0) return true;
+    if (tilemap_get_at_pixel(road_map_id, bbox_right, bbox_top)    != 0) return true;
+    if (tilemap_get_at_pixel(road_map_id, bbox_left,  bbox_bottom) != 0) return true;
+    if (tilemap_get_at_pixel(road_map_id, bbox_right, bbox_bottom) != 0) return true;
+
+    return false;
+}
+
+
+
 // ------------------------------------------------------------
 // INPUT (disabled during crash lock / spin-out)
 // ------------------------------------------------------------
@@ -52,6 +69,8 @@ if (!locked) {
 }
 
 if (crash_timer > 0) crash_timer -= 1;
+
+
 
 // ------------------------------------------------------------
 // TURNING (changes facing)
@@ -80,6 +99,15 @@ drag_cur = lerp(drag_cur, drag_target, drag_smooth);
 
 hsp *= (1 - drag_cur);
 vsp *= (1 - drag_cur);
+
+// ------------------------------------------------------------
+// OFF-ROAD DRAG (if not on "Drivable" tile layer)
+// ------------------------------------------------------------
+if (!is_on_drivable()) {
+    hsp *= (1 - road_drag_extra);
+    vsp *= (1 - road_drag_extra);
+}
+
 
 // ------------------------------------------------------------
 // CLAMP SPEED MAGNITUDE

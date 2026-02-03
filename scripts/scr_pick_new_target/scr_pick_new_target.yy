@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"Script2",
+  "%Name":"scr_pick_new_target",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"Script2",
+  "name":"scr_pick_new_target",
   "parent":{
-    "name":"PizzaDog",
-    "path":"PizzaDog.yyp",
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

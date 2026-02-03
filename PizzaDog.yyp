@@ -38,13 +38,9 @@
     {"id":{"name":"sBuildingMask","path":"sprites/sBuildingMask/sBuildingMask.yy",},},
     {"id":{"name":"sBullet","path":"sprites/sBullet/sBullet.yy",},},
     {"id":{"name":"sFireHydrant","path":"sprites/sFireHydrant/sFireHydrant.yy",},},
-<<<<<<< Updated upstream
     {"id":{"name":"sFireHydrantBusted","path":"sprites/sFireHydrantBusted/sFireHydrantBusted.yy",},},
-=======
-    {"id":{"name":"sFireHydrantBroken","path":"sprites/sFireHydrantBroken/sFireHydrantBroken.yy",},},
     {"id":{"name":"sHospital","path":"sprites/sHospital/sHospital.yy",},},
     {"id":{"name":"sHouse","path":"sprites/sHouse/sHouse.yy",},},
->>>>>>> Stashed changes
     {"id":{"name":"sMailbox","path":"sprites/sMailbox/sMailbox.yy",},},
     {"id":{"name":"sMailboxBusted","path":"sprites/sMailboxBusted/sMailboxBusted.yy",},},
     {"id":{"name":"sOffice","path":"sprites/sOffice/sOffice.yy",},},

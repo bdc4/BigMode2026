@@ -1,9 +1,10 @@
 // movement
 bullet_speed = 0;
 life = 60;
-speed_base = 4;
+speed_base = 0;
 speed = speed_base;
-
+start_set = false;
+target_id = noone;
 
 // arc / height (pixels)
 flight_time = life;   // total frames of the throw
@@ -18,3 +19,6 @@ image_angle = irandom(359);
 inherit_hsp = 0;
 inherit_vsp = 0;
 inherit_drag = 0.0; // set to 0.02..0.08 if you want the inherited momentum to fade
+
+x_start = x;
+y_start = y;

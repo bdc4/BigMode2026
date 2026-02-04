@@ -274,15 +274,15 @@ camera_set_view_size(cam_id, new_w, new_h);
 camera_set_view_pos(cam_id, x - new_w * 0.5, y - new_h * 0.5);
 
 // ------------------------------------------------------------
-// CHARGED SHOT (disabled while locked/spinning)
+// CHARGED TARGET SHOT (disabled while locked/spinning)
 // Hold LMB or Shift to charge, release to fire
-// Barely launches if released too quickly
+// Bullet launches at the *nearest oBreakable to the cursor* and lands on its sprite center
 // ------------------------------------------------------------
 if (!locked) {
 
-    var launch_down    = mouse_check_button(mb_left) || keyboard_check(vk_shift);
-    var launch_press  = mouse_check_button_pressed(mb_left) || keyboard_check_pressed(vk_shift);
-    var launch_release= mouse_check_button_released(mb_left) || keyboard_check_released(vk_shift);
+    var launch_down     = mouse_check_button(mb_left) || keyboard_check(vk_shift);
+    var launch_press    = mouse_check_button_pressed(mb_left) || keyboard_check_pressed(vk_shift);
+    var launch_release  = mouse_check_button_released(mb_left) || keyboard_check_released(vk_shift);
 
     // Start charging
     if (launch_press) {
@@ -295,52 +295,78 @@ if (!locked) {
         shoot_charge = min(shoot_charge + 1, shoot_charge_max);
     }
 
-    // Release -> fire
+    // Release -> acquire target -> fire
     if (shoot_charging && launch_release) {
         shoot_charging = false;
 
-        // Aim
-        var fire_dir = point_direction(x, y, mouse_x, mouse_y);
+        var mx = mouse_x;
+        var my = mouse_y;
 
-        // --- Charge to speed mapping ---
-        var bspd;
+        target = noone;//instance_nearest(mx, my, oBreakable);
+        with (oBreakable) {
+			if (selected) {
+				other.target = id;
+			}
+		}
+		if (target != noone) {
 
-        if (shoot_charge < min_charge_frames) {
-            // Barely launch
-            bspd = barely_speed;
-        } else {
-            // Normalize charge AFTER threshold
-            var q = (shoot_charge - min_charge_frames) / (shoot_charge_max - min_charge_frames);
-            q = clamp(q, 0, 1);
+            // --- Target the exact sprite center in room coordinates ---
+            // Uses sprite + image_xscale/yscale + origin to compute center.
+            var spr = target.sprite_index;
+            var tx, ty;
 
-            // Curve the ramp (late power)
-            q = power(q, bullet_charge_pow);
+            if (spr != -1) {
+                // sprite center offset from origin (local)
+                var cx_local = (sprite_get_width(spr)  * 0.5) - sprite_get_xoffset(spr);
+                var cy_local = (sprite_get_height(spr) * 0.5) - sprite_get_yoffset(spr);
 
-            // Map to speed range
-            bspd = lerp(bullet_speed_min, bullet_speed_max, q);
+                // apply scaling (no rotation handling here; most breakables won't rotate)
+                tx = target.x + cx_local * target.image_xscale;
+                ty = target.y + cy_local * target.image_yscale;
+            } else {
+                // fallback
+                tx = (target.bbox_left + target.bbox_right) * 0.5;
+                ty = (target.bbox_top  + target.bbox_bottom) * 0.5;
+            }
+
+           // Aim from player to target center (tx, ty already computed)
+			var fire_dir = point_direction(x, y, tx, ty);
+
+			// Spawn at muzzle
+			var muzzle_dist = 16;
+			var bx = x + lengthdir_x(muzzle_dist, fire_dir);
+			var by = y + lengthdir_y(muzzle_dist, fire_dir);
+
+			// Bullet speed always max
+			var bspd = bullet_speed_max;
+
+			// Compute flight time so it lands exactly on the center
+			var dist = point_distance(bx, by, tx, ty);
+			var ft = max(1, ceil(dist / bspd));
+
+			var b = instance_create_layer(bx, by, "GUI", oBullet);
+
+			// Tell bullet exactly where to land
+			b.target_id   = target;
+			b.dest_x      = tx;
+			b.dest_y      = ty;
+			b.flight_time = ft;
+			b.t           = 0;
+
+			// Optional (visuals)
+			b.direction    = fire_dir;
+			b.bullet_speed = bspd;
+
+
+            // (Optional) pass momentum for VFX only — don't apply to position if you need exact landing
+            // b.inherit_hsp = hsp;
+            // b.inherit_vsp = vsp;
         }
 
-        // Spawn at muzzle
-        var muzzle_dist = 16;
-        var bx = x + lengthdir_x(muzzle_dist, fire_dir);
-        var by = y + lengthdir_y(muzzle_dist, fire_dir);
-
-        var b = instance_create_layer(bx, by, layer, oBullet);
-
-        // Bullet setup
-        b.direction   = fire_dir;
-        b.bullet_speed = bspd;
-        b.inherit_hsp  = hsp;
-        b.inherit_vsp  = vsp;
-
-        // Reset charge
         shoot_charge = 0;
     }
 
 } else {
-    // Cancel charge if controls lock mid-hold
     shoot_charging = false;
     shoot_charge = 0;
 }
-
-

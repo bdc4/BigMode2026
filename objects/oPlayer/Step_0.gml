@@ -122,9 +122,10 @@ if (vlen > max_speed) {
 
 // ------------------------------------------------------------
 // MOVE (sub-stepped) + perpendicular launch bounce + hard no-overlap guarantee
+// Robust: checks only solids and never "misses" due to all/non-solid returns
 // ------------------------------------------------------------
 var crashed = false;
-var impact_vlen = vlen; // keep pre-collision speed for crash effects
+var impact_vlen = vlen;
 
 var step_size = 1;
 var steps = ceil(max(abs(hsp), abs(vsp)) / step_size);
@@ -136,49 +137,50 @@ var dy = vsp / steps;
 for (var i = 0; i < steps; i++)
 {
     // --- X ---
-    x += dx;
-    var hit = instance_place(x, y, all);
-    if (hit != noone && hit.solid) {
-        crashed = true;
-        x -= dx;
+    if (dx != 0) {
+        x += dx;
 
-        // launch away perpendicular to wall
-        var impact_speed = point_distance(0, 0, hsp, vsp);
-        bounce_launch_away(hit, impact_speed);
+        var hit = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, oWall, false, true);
+        // ^ last arg "true" = solidOnly, so hit is guaranteed solid if not noone
+        if (hit != noone) {
+            crashed = true;
+            x -= dx;
 
-        // recompute substep deltas using new velocity
-        dx = hsp / steps;
-        dy = vsp / steps;
+            var impact_speed = point_distance(0, 0, hsp, vsp);
+            bounce_launch_away(hit, impact_speed);
+
+            // recompute remaining per-step motion after bounce
+            dx = hsp / steps;
+            dy = vsp / steps;
+        }
     }
 
     // --- Y ---
-    y += dy;
-    hit = instance_place(x, y, all);
-    if (hit != noone && hit.solid) {
-        crashed = true;
-        y -= dy;
+    if (dy != 0) {
+        y += dy;
 
-        // launch away perpendicular to wall
-        var impact_speed2 = point_distance(0, 0, hsp, vsp);
-        bounce_launch_away(hit, impact_speed2);
+        var hit2 = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, oWall, false, true);
+        if (hit2 != noone) {
+            crashed = true;
+            y -= dy;
 
-        dx = hsp / steps;
-        dy = vsp / steps;
+            var impact_speed2 = point_distance(0, 0, hsp, vsp);
+            bounce_launch_away(hit2, impact_speed2);
+
+            dx = hsp / steps;
+            dy = vsp / steps;
+        }
     }
 }
 
-// Never end inside solids — if still overlapping, launch away using the same normal logic
-var final_hit = collision_rectangle(
-    bbox_left, bbox_top, bbox_right, bbox_bottom,
-    all, false, true
-);
-
-if (final_hit != noone && final_hit.solid)
-{
+// Final safety: never end inside solids
+var final_hit = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, oWall, false, true);
+if (final_hit != noone) {
     crashed = true;
     var impact_speed3 = max(impact_vlen, min_bounce_speed);
     bounce_launch_away(final_hit, impact_speed3);
 }
+
 
 // ------------------------------------------------------------
 // CRASH EFFECTS (lock controls; spin-out only at high speed)

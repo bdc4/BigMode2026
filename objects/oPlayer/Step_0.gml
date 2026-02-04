@@ -305,12 +305,14 @@ if (!locked) {
         var my = mouse_y;
 
         target = noone;//instance_nearest(mx, my, oBreakable);
-        with (oBreakable) {
+        with (oSelectable) {
 			if (selected) {
 				other.target = id;
 			}
 		}
-		if (target != noone) {
+		if (target != noone && ammo > 0) {
+			
+			ammo--;
 
             // --- Target the exact sprite center in room coordinates ---
             // Uses sprite + image_xscale/yscale + origin to compute center.
@@ -320,7 +322,7 @@ if (!locked) {
             if (spr != -1) {
                 // sprite center offset from origin (local)
                 var cx_local = (sprite_get_width(spr)  * 0.5) - sprite_get_xoffset(spr);
-                var cy_local = (sprite_get_height(spr) * 0.5) - sprite_get_yoffset(spr);
+                var cy_local = (sprite_get_height(spr) * 0.75) - sprite_get_yoffset(spr);
 
                 // apply scaling (no rotation handling here; most breakables won't rotate)
                 tx = target.x + cx_local * target.image_xscale;

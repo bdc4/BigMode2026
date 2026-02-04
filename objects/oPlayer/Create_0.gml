@@ -85,5 +85,9 @@ bullet_speed_min = 1;
 bullet_speed_max = 8;
 bullet_charge_pow = 1.6;
 
+// resources
+ammo = 0;
+max_ammo = 1;
+
 
 

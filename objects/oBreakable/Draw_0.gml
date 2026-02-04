@@ -1,3 +1,5 @@
+event_inherited();
+
 var newSprite = noone;
 
 if (broken && sprite_index == type) {
@@ -21,12 +23,6 @@ if (newSprite && sprite_index != newSprite) {
 		image_index = irandom(sprite_get_number(sprite_index));
 		image_speed = 0;
 	}
-}
-
-if (selected) {
-	image_blend = c_green;
-} else {
-	image_blend = c_white;
 }
 
 draw_self();

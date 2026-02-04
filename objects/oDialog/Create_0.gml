@@ -18,7 +18,7 @@ shown_chars = 0;
 // input
 advance_key = vk_space;
 
-auto_advance_time = 90; // frames per line (90 = 1.5s at 60fps)
+auto_advance_time = 120; // frames per line (90 = 1.5s at 60fps)
 line_timer = 0;
 
 portrait_sprite = noone;
@@ -58,8 +58,6 @@ function dialog_get()
     return d;
 }
 
-// TESTING
-var d = dialog_get();
-d.dialog_show("Pizza Boss", "You're late.\nDeliver the pizza posthaste!", sPizzaDogPortrait, 0);
+alarm[0] = 1;
 
 

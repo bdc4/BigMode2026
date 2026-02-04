@@ -1,4 +1,70 @@
 /// oPlayer : Draw GUI
+
+// ------------------------------------------------------------
+// AMMO TRACKER (icon + text) — TOP LEFT
+// ------------------------------------------------------------
+
+// Data
+var ammo_cur = ammo;
+var ammo_max = variable_instance_exists(self, "max_ammo") ? max_ammo : -1;
+
+// Layout constants
+var pad     = 12;
+var icon_sz = 24;
+var gap     = 8;
+
+// Position (top-left)
+var x0 = pad;
+var y0 = pad;
+
+// Text string
+var ammo_txt = (ammo_max >= 0)
+    ? string(ammo_cur) + "/" + string(ammo_max)
+    : string(ammo_cur);
+
+// Measure text
+draw_set_font(-1); // current font
+var tw = string_width(ammo_txt);
+var th = string_height(ammo_txt);
+
+// Background size
+var bg_w = pad + icon_sz + gap + tw + pad;
+var bg_h = max(icon_sz, th) + pad * 2;
+
+// --- Background ---
+draw_set_alpha(0.6);
+draw_set_color(c_black);
+draw_rectangle(x0, y0, x0 + bg_w, y0 + bg_h, false);
+
+// --- Icon ---
+draw_set_alpha(1);
+draw_set_color(c_white);
+draw_sprite_ext(
+    sPizza, 0,
+    x0 + pad,
+    y0 + bg_h * 0.5,
+    1, 1,
+    0,
+    c_white,
+    1
+);
+
+// --- Text ---
+draw_set_halign(fa_left);
+draw_set_valign(fa_middle);
+draw_text(
+    x0 + pad + icon_sz + gap,
+    y0 + bg_h * 0.5,
+    ammo_txt
+);
+
+// Reset draw state
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_set_alpha(1);
+
+
+
 if (!variable_global_exists("target_building") || !instance_exists(global.target_building)) exit;
 
 // --- Camera view in world space ---
@@ -75,5 +141,7 @@ draw_set_alpha(0.5);
 draw_set_color(c_red);
 draw_triangle(tip_x, tip_y, left_x, left_y, right_x, right_y, false);
 draw_set_alpha(1);
+
+
 
 

@@ -44,6 +44,7 @@
     {"id":{"name":"rPlayground","path":"rooms/rPlayground/rPlayground.yy",},},
     {"id":{"name":"scr_pick_new_target","path":"scripts/scr_pick_new_target/scr_pick_new_target.yy",},},
     {"id":{"name":"skid_update","path":"scripts/skid_update/skid_update.yy",},},
+    {"id":{"name":"sAutobodyShop","path":"sprites/sAutobodyShop/sAutobodyShop.yy",},},
     {"id":{"name":"sBuildingMask","path":"sprites/sBuildingMask/sBuildingMask.yy",},},
     {"id":{"name":"sBullet","path":"sprites/sBullet/sBullet.yy",},},
     {"id":{"name":"sFireHydrant","path":"sprites/sFireHydrant/sFireHydrant.yy",},},

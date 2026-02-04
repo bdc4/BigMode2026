@@ -258,7 +258,7 @@ if (at_max) {
 // ------------------------------------------------------------
 // SKIDS
 // ------------------------------------------------------------
-skid_update(self, turn, vlen);
+skid_update(self, turn, vlen, !is_on_drivable());
 
 // ------------------------------------------------------------
 // CAMERA ZOOM BASED ON SPEED
@@ -274,18 +274,73 @@ camera_set_view_size(cam_id, new_w, new_h);
 camera_set_view_pos(cam_id, x - new_w * 0.5, y - new_h * 0.5);
 
 // ------------------------------------------------------------
-// FIRE BULLET (disabled while locked/spinning)
+// CHARGED SHOT (disabled while locked/spinning)
+// Hold LMB or Shift to charge, release to fire
+// Barely launches if released too quickly
 // ------------------------------------------------------------
 if (!locked) {
-    if (mouse_check_button_pressed(mb_left) || keyboard_check_pressed(vk_shift)) {
 
-        var fire_dir = facing + tip_angle_offset;
+    var launch_down    = mouse_check_button(mb_left) || keyboard_check(vk_shift);
+    var launch_press  = mouse_check_button_pressed(mb_left) || keyboard_check_pressed(vk_shift);
+    var launch_release= mouse_check_button_released(mb_left) || keyboard_check_released(vk_shift);
 
+    // Start charging
+    if (launch_press) {
+        shoot_charging = true;
+        shoot_charge = 0;
+    }
+
+    // Build charge while held
+    if (shoot_charging && launch_down) {
+        shoot_charge = min(shoot_charge + 1, shoot_charge_max);
+    }
+
+    // Release -> fire
+    if (shoot_charging && launch_release) {
+        shoot_charging = false;
+
+        // Aim
+        var fire_dir = point_direction(x, y, mouse_x, mouse_y);
+
+        // --- Charge to speed mapping ---
+        var bspd;
+
+        if (shoot_charge < min_charge_frames) {
+            // Barely launch
+            bspd = barely_speed;
+        } else {
+            // Normalize charge AFTER threshold
+            var q = (shoot_charge - min_charge_frames) / (shoot_charge_max - min_charge_frames);
+            q = clamp(q, 0, 1);
+
+            // Curve the ramp (late power)
+            q = power(q, bullet_charge_pow);
+
+            // Map to speed range
+            bspd = lerp(bullet_speed_min, bullet_speed_max, q);
+        }
+
+        // Spawn at muzzle
         var muzzle_dist = 16;
         var bx = x + lengthdir_x(muzzle_dist, fire_dir);
         var by = y + lengthdir_y(muzzle_dist, fire_dir);
 
         var b = instance_create_layer(bx, by, layer, oBullet);
-        b.direction = fire_dir;
+
+        // Bullet setup
+        b.direction   = fire_dir;
+        b.bullet_speed = bspd;
+        b.inherit_hsp  = hsp;
+        b.inherit_vsp  = vsp;
+
+        // Reset charge
+        shoot_charge = 0;
     }
+
+} else {
+    // Cancel charge if controls lock mid-hold
+    shoot_charging = false;
+    shoot_charge = 0;
 }
+
+

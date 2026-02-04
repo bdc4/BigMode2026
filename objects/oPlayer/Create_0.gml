@@ -72,3 +72,18 @@ road_check_radius = 0;   // 0 = point check; try 8 for a small area
 road_layer_id = layer_get_id("Driveable");
 road_map_id = layer_tilemap_get_id(road_layer_id);
 
+// Bullet charge
+shoot_charging = false;
+shoot_charge = 0;
+
+shoot_charge_max = 12;
+
+min_charge_frames = 8;
+barely_speed = 1.2;
+
+bullet_speed_min = 1;
+bullet_speed_max = 8;
+bullet_charge_pow = 1.6;
+
+
+

@@ -1,6 +1,7 @@
 // Move in world (ground path)
-x += lengthdir_x(bullet_speed, direction);
-y += lengthdir_y(bullet_speed, direction);
+x += lengthdir_x(bullet_speed, direction) + inherit_hsp;
+y += lengthdir_y(bullet_speed, direction) + inherit_vsp;
+
 
 // Flight progress (0..1)
 t += 1;

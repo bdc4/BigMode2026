@@ -1,10 +1,11 @@
-/// @func skid_update(_player, _turn, _vlen)
+/// @func skid_update(_player, _turn, _vlen, _offroad)
 /// @desc Drop skid segments when turning at near max speed.
 /// @param _player  instance id (usually self)
 /// @param _turn    -1,0,1 (left/right input or steering direction)
 /// @param _vlen    current speed magnitude (e.g., point_distance(0,0,hsp,vsp))
 
-function skid_update(_player, _turn, _vlen)
+function skid_update(_player, _turn, _vlen, _offroad)
+
 {
     // --- Settings (read from player if present, else defaults) ---
     var max_speed     = _player.max_speed;
@@ -18,11 +19,12 @@ function skid_update(_player, _turn, _vlen)
     var back          = variable_instance_exists(_player, "wheel_back")   ? _player.wheel_back   : 6;
 
     // --- Conditions ---
-   var at_max  = (_vlen >= max_speed * 0.65);
+	var at_max  = (_vlen >= max_speed * 0.65);
 	var turning = (_turn != 0);
 
-	// Keep skidding as long as the turn key is held (and we're fast)
-	var skidding = at_max && turning;
+	// Skid if: off-road OR (fast + turning)
+	var skidding = _offroad || (at_max && turning);
+
 
 
     // --- Compute wheel positions ---
@@ -64,6 +66,20 @@ function skid_update(_player, _turn, _vlen)
 
             _player.prev_wL_x = wL_x; _player.prev_wL_y = wL_y;
             _player.prev_wR_x = wR_x; _player.prev_wR_y = wR_y;
+			
+			if (_offroad) {
+				var shift = [irandom(40),irandom(40)]
+				segL.color = make_color_rgb(100+shift[0],55+shift[0],0+shift[0]);
+				segR.color = make_color_rgb(100+shift[1],55+shift[1],0+shift[1]);
+				segL.width = skid_width*2;
+				segR.width = skid_width*2;
+				if (irandom(3) == 3) {
+					instance_destroy(segL);
+				}
+				if (irandom(3) == 3) {
+					instance_destroy(segR);
+				}
+			}
         }
     } else {
         // Reset history so next skid starts clean

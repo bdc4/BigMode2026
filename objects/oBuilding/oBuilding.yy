@@ -35,5 +35,5 @@
     "path":"sprites/sBuildingMask/sBuildingMask.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

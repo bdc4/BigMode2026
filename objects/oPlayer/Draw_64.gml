@@ -75,3 +75,5 @@ draw_set_alpha(0.5);
 draw_set_color(c_red);
 draw_triangle(tip_x, tip_y, left_x, left_y, right_x, right_y, false);
 draw_set_alpha(1);
+
+

@@ -4,3 +4,4 @@
 maxlife = 145;
 life = maxlife;
 alpha = 1;
+color = make_color_rgb(20, 20, 20);

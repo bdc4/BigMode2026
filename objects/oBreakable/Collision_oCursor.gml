@@ -1,2 +1,2 @@
-if (distance_to_object(oPlayer) < 500)
+if (distance_to_object(oPlayer) < 400)
 	selected = true;

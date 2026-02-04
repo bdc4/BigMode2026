@@ -1,10 +1,10 @@
 {
   "$GMSprite":"v2",
-  "%Name":"sRoadTiles",
+  "%Name":"sSidewalkFrontPartiallyShadedRight",
   "bboxMode":0,
-  "bbox_bottom":191,
+  "bbox_bottom":63,
   "bbox_left":0,
-  "bbox_right":511,
+  "bbox_right":63,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,16 +12,16 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"eef614c1-f912-4a72-82d0-e5184a64e23a","name":"eef614c1-f912-4a72-82d0-e5184a64e23a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"dd872f01-4dc3-41ba-a01a-5273c1dd3860","name":"dd872f01-4dc3-41ba-a01a-5273c1dd3860","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
-  "height":512,
+  "height":64,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"3b183759-47bc-42a5-8657-b0cc8e051d02","blendMode":0,"displayName":"default","isLocked":false,"name":"3b183759-47bc-42a5-8657-b0cc8e051d02","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"db13c92c-ff38-466d-97e1-bd69bf43f492","blendMode":0,"displayName":"default","isLocked":false,"name":"db13c92c-ff38-466d-97e1-bd69bf43f492","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"sRoadTiles",
+  "name":"sSidewalkFrontPartiallyShadedRight",
   "nineSlice":null,
   "origin":0,
   "parent":{
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"v1",
-    "%Name":"sRoadTiles",
+    "%Name":"sSidewalkFrontPartiallyShadedRight",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"sRoadTiles",
+    "name":"sSidewalkFrontPartiallyShadedRight",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"eef614c1-f912-4a72-82d0-e5184a64e23a","path":"sprites/sRoadTiles/sRoadTiles.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"e9ababa1-5d86-47f4-8ce4-31cedca1693f","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"dd872f01-4dc3-41ba-a01a-5273c1dd3860","path":"sprites/sSidewalkFrontPartiallyShadedRight/sSidewalkFrontPartiallyShadedRight.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"36e6b477-00be-4b36-ad75-e3cacc618aa9","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":512,
+  "width":64,
 }

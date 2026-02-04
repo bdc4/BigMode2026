@@ -10,6 +10,7 @@ if (broken && sprite_index == type) {
 		if (debug_mode) show_error(err, false)
 		else show_debug_message(err);
 	} else {
+		// if (irandom(1) == 1) image_xscale = -1;
 		newSprite = asset_get_index(check);
 	}
 }

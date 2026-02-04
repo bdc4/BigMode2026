@@ -1,10 +1,10 @@
 {
   "$GMSprite":"v2",
-  "%Name":"sAutobodyShop",
+  "%Name":"sBreakingBadHouse",
   "bboxMode":0,
-  "bbox_bottom":255,
+  "bbox_bottom":0,
   "bbox_left":0,
-  "bbox_right":511,
+  "bbox_right":0,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,16 +12,16 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"33122ad5-c4ef-4208-9b58-0be88006a68f","name":"33122ad5-c4ef-4208-9b58-0be88006a68f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"4118ec65-8a92-4130-8b86-06a25f79e74b","name":"4118ec65-8a92-4130-8b86-06a25f79e74b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
-  "height":256,
+  "height":64,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"9c0e9444-394d-441f-916f-fd6aa3e45ca9","blendMode":0,"displayName":"default","isLocked":false,"name":"9c0e9444-394d-441f-916f-fd6aa3e45ca9","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"aeae9073-2ed6-4d1a-a1c6-2f8fbeab7cde","blendMode":0,"displayName":"default","isLocked":false,"name":"aeae9073-2ed6-4d1a-a1c6-2f8fbeab7cde","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"sAutobodyShop",
+  "name":"sBreakingBadHouse",
   "nineSlice":null,
   "origin":0,
   "parent":{
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"v1",
-    "%Name":"sAutobodyShop",
+    "%Name":"sBreakingBadHouse",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"sAutobodyShop",
+    "name":"sBreakingBadHouse",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"33122ad5-c4ef-4208-9b58-0be88006a68f","path":"sprites/sAutobodyShop/sAutobodyShop.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"ffddef7c-b28a-4113-b903-bab81dc7d4db","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"4118ec65-8a92-4130-8b86-06a25f79e74b","path":"sprites/sBreakingBadHouse/sBreakingBadHouse.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"ea73fcde-66f3-4bc9-8c7e-543b62df4e39","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":512,
+  "width":64,
 }

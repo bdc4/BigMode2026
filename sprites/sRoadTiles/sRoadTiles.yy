@@ -2,7 +2,7 @@
   "$GMSprite":"v2",
   "%Name":"sRoadTiles",
   "bboxMode":0,
-  "bbox_bottom":191,
+  "bbox_bottom":255,
   "bbox_left":0,
   "bbox_right":511,
   "bbox_top":0,

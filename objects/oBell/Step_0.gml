@@ -1,3 +1,5 @@
+event_inherited()
+
 // Gravity pulls bell back toward center
 swing_vel -= swing_angle * swing_grav;
 

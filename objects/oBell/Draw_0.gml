@@ -1,5 +1,7 @@
 /// oBell : Draw
 
+event_inherited()
+
 // Draw tongue (behind bell)
 draw_sprite_ext(
     sSchoolBellHammer,

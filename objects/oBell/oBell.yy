@@ -11,8 +11,8 @@
   "name":"oBell",
   "overriddenProperties":[],
   "parent":{
-    "name":"PizzaDog",
-    "path":"PizzaDog.yyp",
+    "name":"Interactables",
+    "path":"folders/Objects/Interactables.yy",
   },
   "parentObjectId":null,
   "persistent":false,

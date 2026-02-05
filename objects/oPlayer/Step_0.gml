@@ -57,8 +57,10 @@ function is_on_drivable()
 // ------------------------------------------------------------
 // INPUT (disabled during crash lock / spin-out)
 // ------------------------------------------------------------
+if (instance_exists(oPopupMenu)) exit;
+
 var spinning = (spin_time > 0);
-var locked = (crash_timer > 0) || spinning;
+locked = (crash_timer > 0) || spinning;
 
 var throttle = (!locked) && keyboard_check(vk_space);
 
@@ -282,9 +284,9 @@ camera_set_view_pos(cam_id, x - new_w * 0.5, y - new_h * 0.5);
 // ------------------------------------------------------------
 if (!locked) {
 
-    var launch_down     = mouse_check_button(mb_left) || keyboard_check(vk_shift);
-    var launch_press    = mouse_check_button_pressed(mb_left) || keyboard_check_pressed(vk_shift);
-    var launch_release  = mouse_check_button_released(mb_left) || keyboard_check_released(vk_shift);
+    var launch_down     = mouse_check_button(mb_left)
+    var launch_press    = mouse_check_button_pressed(mb_left)
+    var launch_release  = mouse_check_button_released(mb_left)
 
     // Start charging
     if (launch_press) {

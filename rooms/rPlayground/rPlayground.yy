@@ -97,6 +97,7 @@
     {"name":"inst_547E6EB4","path":"rooms/rPlayground/rPlayground.yy",},
     {"name":"inst_7C94BED9","path":"rooms/rPlayground/rPlayground.yy",},
     {"name":"inst_337E7220","path":"rooms/rPlayground/rPlayground.yy",},
+    {"name":"inst_2C31CE39","path":"rooms/rPlayground/rPlayground.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -245,6 +246,7 @@
     {"$GMRInstanceLayer":"","%Name":"Instances","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_745E2263","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_745E2263","objectId":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":224.0,"y":992.0,},
         {"$GMRInstance":"v4","%Name":"inst_262CE3B5","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_262CE3B5","objectId":{"name":"oPizzaPowerup","path":"objects/oPizzaPowerup/oPizzaPowerup.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":2.5000002,"scaleY":2.5000002,"x":576.0,"y":992.0,},
+        {"$GMRInstance":"v4","%Name":"inst_2C31CE39","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2C31CE39","objectId":{"name":"oMenuZone","path":"objects/oMenuZone/oMenuZone.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":8.0,"scaleY":8.0,"x":576.0,"y":1408.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"GroundDecals","depth":500,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"GroundDecals","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"HousePaths","assets":[

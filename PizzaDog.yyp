@@ -33,6 +33,7 @@
   },
   "name":"PizzaDog",
   "resources":[
+    {"id":{"name":"oBell","path":"objects/oBell/oBell.yy",},},
     {"id":{"name":"oBreakable","path":"objects/oBreakable/oBreakable.yy",},},
     {"id":{"name":"oBuilding","path":"objects/oBuilding/oBuilding.yy",},},
     {"id":{"name":"oBullet","path":"objects/oBullet/oBullet.yy",},},
@@ -42,6 +43,7 @@
     {"id":{"name":"oPizzaPowerup","path":"objects/oPizzaPowerup/oPizzaPowerup.yy",},},
     {"id":{"name":"oPizzaSplatter","path":"objects/oPizzaSplatter/oPizzaSplatter.yy",},},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
+    {"id":{"name":"oSchoolFlag","path":"objects/oSchoolFlag/oSchoolFlag.yy",},},
     {"id":{"name":"oSelectable","path":"objects/oSelectable/oSelectable.yy",},},
     {"id":{"name":"oSkidSeg","path":"objects/oSkidSeg/oSkidSeg.yy",},},
     {"id":{"name":"oSmokePuff","path":"objects/oSmokePuff/oSmokePuff.yy",},},
@@ -125,8 +127,8 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"rPlayground","path":"rooms/rPlayground/rPlayground.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"rPlayground","path":"rooms/rPlayground/rPlayground.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

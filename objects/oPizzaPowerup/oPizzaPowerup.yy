@@ -13,7 +13,10 @@
     "name":"Interactables",
     "path":"folders/Objects/Interactables.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"oPowerup",
+    "path":"objects/oPowerup/oPowerup.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -32,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sPizza",
-    "path":"sprites/sPizza/sPizza.yy",
+    "name":"sPizzaBox",
+    "path":"sprites/sPizzaBox/sPizzaBox.yy",
   },
   "spriteMaskId":null,
   "visible":true,

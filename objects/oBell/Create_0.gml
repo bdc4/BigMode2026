@@ -16,3 +16,5 @@ tongue_vel   = 0;
 tongue_follow = 0.25;   // how strongly it reacts to bell motion
 tongue_damp   = 0.85;   // how quickly it settles
 tongue_max    = 30;     // max tongue swing (degrees)
+
+event_inherited()

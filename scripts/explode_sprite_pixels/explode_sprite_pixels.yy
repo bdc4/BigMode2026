@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"explode_sprite_pixels",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"explode_sprite_pixels",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

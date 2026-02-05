@@ -52,6 +52,76 @@ function is_on_drivable()
     return false;
 }
 
+// ------------------------------------------------------------
+// DEMO AUTOPILOT (disables steering/throttle, follows a path)
+// ------------------------------------------------------------
+if (demo_mode) {
+	
+	if (keyboard_check_pressed(vk_space)) {
+		demo_mode = false;
+		exit;
+	}
+
+    // Advance along path by distance
+    var plen = max(1, path_get_length(demo_path));
+    demo_pos += demo_speed / plen;
+    if (demo_pos >= 1) demo_pos -= 1; // loop
+
+    // Sample path at current pos and lookahead pos (0..1)
+    var x0 = path_get_x(demo_path, demo_pos);
+    var y0 = path_get_y(demo_path, demo_pos);
+
+    var p2 = demo_pos + demo_look;
+    if (p2 >= 1) p2 -= 1;
+
+    var xt = path_get_x(demo_path, p2);
+    var yt = path_get_y(demo_path, p2);
+
+    // Desired heading from path tangent (NOT from player position)
+    var desired = point_direction(x0, y0, xt, yt);
+
+    // Steer toward desired
+    var diff = angle_difference(desired, facing);
+    facing += clamp(diff, -demo_turn_rate, demo_turn_rate);
+    facing = (facing mod 360 + 360) mod 360;
+
+    // Thrust forward
+    var thrust_dir = facing + tip_angle_offset;
+    hsp += lengthdir_x(demo_throttle, thrust_dir);
+    vsp += lengthdir_y(demo_throttle, thrust_dir);
+
+    // Drag
+    hsp *= (1 - demo_drag);
+    vsp *= (1 - demo_drag);
+
+    // Clamp speed
+    var vlen = point_distance(0, 0, hsp, vsp);
+    if (vlen > demo_speed) {
+        var s = demo_speed / vlen;
+        hsp *= s; vsp *= s;
+    }
+
+    // Move
+    x += hsp;
+    y += vsp;
+
+    // Stronger “magnet” to path if we drift (prevents corner overshoot)
+    var dpath = point_distance(x, y, x0, y0);
+    var snap = lerp(demo_snap, 0.35, clamp(dpath / 32, 0, 1)); // more snap when far
+    x = lerp(x, x0, snap);
+    y = lerp(y, y0, snap);
+
+    // Smooth sprite rotation
+    var d = angle_difference(facing, visual_facing);
+    visual_facing += d * turn_speed;
+    is_moving = true;
+	
+	skid_update(self, [1,0,0,0][irandom(3)], max_speed, !is_on_drivable());
+
+    exit; // skip normal controls/physics below
+}
+
+
 
 
 // ------------------------------------------------------------

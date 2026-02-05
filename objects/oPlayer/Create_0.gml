@@ -90,4 +90,16 @@ ammo = 0;
 max_ammo = 1;
 
 
+// Demo mode
+demo_mode = true;
+
+demo_path = PathDemo;
+demo_speed = 13.5;          // world units per step
+demo_pos = 0;              // 0..1 on path
+demo_look = 0.015;         // aim ahead (0.01..0.04)
+demo_turn_rate = 5;        // degrees per step
+demo_throttle = 0.35;      // accel strength per step
+demo_drag = 0.06;          // should match your drag feel
+demo_snap = 0.10;          // how hard we "pull" back toward the path
+
 

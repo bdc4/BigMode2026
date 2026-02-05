@@ -2,6 +2,8 @@
 // TESTING
 var d = dialog_get();
 
+if (oPlayer.demo_mode) exit;
+
 // Dunkey-esque Pizza Boss lines
 var sample_dialog = [
     ["Pizza Boss", "Alright listen up.\nThis pizza is the main character.", sPizzaDogPortrait, 0],

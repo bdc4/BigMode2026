@@ -1,11 +1,11 @@
 {
   "$GMSprite":"v2",
-  "%Name":"sCarPlayerRight",
+  "%Name":"sCarPlayerDown",
   "bboxMode":0,
-  "bbox_bottom":95,
-  "bbox_left":15,
-  "bbox_right":113,
-  "bbox_top":44,
+  "bbox_bottom":109,
+  "bbox_left":35,
+  "bbox_right":92,
+  "bbox_top":17,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
@@ -21,7 +21,7 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"8e4ae822-da35-41ea-b189-7e4071124c24","blendMode":0,"displayName":"default","isLocked":false,"name":"8e4ae822-da35-41ea-b189-7e4071124c24","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"sCarPlayerRight",
+  "name":"sCarPlayerDown",
   "nineSlice":null,
   "origin":0,
   "parent":{
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"v1",
-    "%Name":"sCarPlayerRight",
+    "%Name":"sCarPlayerDown",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"sCarPlayerRight",
+    "name":"sCarPlayerDown",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,7 +69,7 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e19601c6-b2c5-495f-a9ed-e1a9bb624de0","path":"sprites/sCarPlayerRight/sCarPlayerRight.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e19601c6-b2c5-495f-a9ed-e1a9bb624de0","path":"sprites/sCarPlayerDown/sCarPlayerDown.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"6a443a24-2196-436b-8e24-7bbf8ae0f298","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],

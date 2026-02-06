@@ -17,7 +17,7 @@ hsp = 0;
 vsp = 0;
 
 engine_accel = 1.4;   // thrust per step while holding Space
-max_speed    = 16.0;    // clamps total velocity magnitude
+max_speed    = 12.0;    // clamps total velocity magnitude
 drag         = 0.08;   // general friction/air resistance
 turn_rate    = 7;    // degrees per step
 
@@ -38,6 +38,8 @@ crash_lock_frames = 18; // tune: 6–14 feels good
 tip_angle_offset = 0;
 
 smoke_tick = -1;
+
+space_held = false;
 
 
 // skid

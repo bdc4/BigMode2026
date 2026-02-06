@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Everything Pizza",
-    "path":"folders/Sprites/Everything Pizza.yy",
+    "name":"Collectibles",
+    "path":"folders/Sprites/Collectibles.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

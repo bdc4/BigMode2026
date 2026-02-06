@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sPizzaDog",
-    "path":"sprites/sPizzaDog/sPizzaDog.yy",
+    "name":"sPizzaDog64x64",
+    "path":"sprites/sPizzaDog64x64/sPizzaDog64x64.yy",
   },
   "spriteMaskId":null,
   "visible":true,

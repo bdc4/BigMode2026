@@ -3,6 +3,15 @@ facing = 0;
 visual_facing = 0;
 turn_speed = 0.18;
 
+// Directional sprites (set these to your assets)
+spr_right = sCarPlayerRight;
+spr_left  = sCarPlayerLeft;
+spr_up    = sCarPlayerUpSizeAdjusted;
+spr_down  = sCarPlayerDownSizeAdjusted;
+
+dir4 = 0; // 0=right, 1=up, 2=left, 3=down
+
+
 // Velocity-based driving
 hsp = 0;
 vsp = 0;

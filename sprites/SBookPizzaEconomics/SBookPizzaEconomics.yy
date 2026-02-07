@@ -1,10 +1,10 @@
 {
   "$GMSprite":"v2",
-  "%Name":"sWrench66x66",
+  "%Name":"SBookPizzaEconomics",
   "bboxMode":0,
-  "bbox_bottom":65,
+  "bbox_bottom":63,
   "bbox_left":0,
-  "bbox_right":65,
+  "bbox_right":63,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,16 +12,16 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"d55caa69-9296-46b0-ae8e-0fae90b97631","name":"d55caa69-9296-46b0-ae8e-0fae90b97631","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"09a422aa-16f8-4ca8-b2ad-06f6d319752d","name":"09a422aa-16f8-4ca8-b2ad-06f6d319752d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
-  "gridX":8,
-  "gridY":8,
-  "height":66,
+  "gridX":0,
+  "gridY":0,
+  "height":64,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"36398b5f-60bd-4f76-8ba9-cb9dc259897b","blendMode":0,"displayName":"default","isLocked":false,"name":"36398b5f-60bd-4f76-8ba9-cb9dc259897b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"1a6dd372-b838-40ba-bce7-cc2c2b96e0d2","blendMode":0,"displayName":"default","isLocked":false,"name":"1a6dd372-b838-40ba-bce7-cc2c2b96e0d2","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"sWrench66x66",
+  "name":"SBookPizzaEconomics",
   "nineSlice":null,
   "origin":0,
   "parent":{
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"v1",
-    "%Name":"sWrench66x66",
+    "%Name":"SBookPizzaEconomics",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"sWrench66x66",
+    "name":"SBookPizzaEconomics",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d55caa69-9296-46b0-ae8e-0fae90b97631","path":"sprites/sWrench66x66/sWrench66x66.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"0ed72054-b5be-4577-ad2f-b9148f746916","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"09a422aa-16f8-4ca8-b2ad-06f6d319752d","path":"sprites/SBookPizzaEconomics/SBookPizzaEconomics.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"2665d174-f8e4-408d-9706-3a7c130087f1","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":66,
+  "width":64,
 }

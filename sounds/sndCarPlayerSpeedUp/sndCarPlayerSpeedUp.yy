@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sndWindowBreak08",
+  "%Name":"sndCarPlayerSpeedUp",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":1.0104308,
+  "duration":0.89238095,
   "exportDir":"",
-  "name":"sndWindowBreak08",
+  "name":"sndCarPlayerSpeedUp",
   "parent":{
-    "name":"Window",
-    "path":"folders/Sounds/SFX/Breakables/Window.yy",
+    "name":"Player",
+    "path":"folders/Sounds/SFX/Player.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndWindowBreak08.wav",
+  "soundFile":"sndCarPlayerSpeedUp.wav",
   "volume":1.0,
 }

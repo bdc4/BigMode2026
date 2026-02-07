@@ -58,6 +58,7 @@
     {"id":{"name":"oGameController","path":"objects/oGameController/oGameController.yy",},},
     {"id":{"name":"oIntroSplash","path":"objects/oIntroSplash/oIntroSplash.yy",},},
     {"id":{"name":"oMenuZone","path":"objects/oMenuZone/oMenuZone.yy",},},
+    {"id":{"name":"oObjectiveTracker","path":"objects/oObjectiveTracker/oObjectiveTracker.yy",},},
     {"id":{"name":"oPizzaPowerup","path":"objects/oPizzaPowerup/oPizzaPowerup.yy",},},
     {"id":{"name":"oPizzaSplatter","path":"objects/oPizzaSplatter/oPizzaSplatter.yy",},},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},

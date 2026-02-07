@@ -17,7 +17,7 @@ if (keyboard_check_pressed(vk_escape)) {
 }
 
 // Activate
-if (keyboard_check_pressed(vk_control)) {
+if (keyboard_check_pressed(vk_shift)) {
     var cb = callbacks[selected];
 
     // cb can be a script/function reference, or [instance, script]

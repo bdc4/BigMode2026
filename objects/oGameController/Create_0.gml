@@ -8,3 +8,14 @@ with (oBuilding) {
 }
 
 scrPickNewTarget();
+
+
+global.objectives = [
+	"Park in front of Pizza Dog."
+];
+
+global.progress = 0;
+
+global.current_objective = global.objectives[global.progress];
+
+instance_create_layer(x,y,layer,oObjectiveTracker);

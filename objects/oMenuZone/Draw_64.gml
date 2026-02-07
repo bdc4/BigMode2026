@@ -29,7 +29,7 @@ var py = (p.y - vy) / vh * gh;
 py += 60;
 
 // --- Draw hint ---
-var msg = instance_exists(oPopupMenu) ? "W/S = Up/Down\nCtrl = Select" : "Press CTRL";
+var msg = instance_exists(oPopupMenu) ? "W/S = Up/Down\nShift = Select" : "Press CTRL";
 
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);

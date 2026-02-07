@@ -120,6 +120,8 @@
     {"id":{"name":"sndPhoneDogBark06","path":"sounds/sndPhoneDogBark06/sndPhoneDogBark06.yy",},},
     {"id":{"name":"sndPhoneDogBark07","path":"sounds/sndPhoneDogBark07/sndPhoneDogBark07.yy",},},
     {"id":{"name":"sndPhoneDogBark08","path":"sounds/sndPhoneDogBark08/sndPhoneDogBark08.yy",},},
+    {"id":{"name":"sndPoliceCatchesPlayer","path":"sounds/sndPoliceCatchesPlayer/sndPoliceCatchesPlayer.yy",},},
+    {"id":{"name":"sndPoliceSirenLOOP","path":"sounds/sndPoliceSirenLOOP/sndPoliceSirenLOOP.yy",},},
     {"id":{"name":"sndRegister","path":"sounds/sndRegister/sndRegister.yy",},},
     {"id":{"name":"sndReverse","path":"sounds/sndReverse/sndReverse.yy",},},
     {"id":{"name":"sndSpinout","path":"sounds/sndSpinout/sndSpinout.yy",},},

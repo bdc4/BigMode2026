@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sndStuck",
+  "%Name":"sndWindowBreak04",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":2.5469387,
+  "duration":0.7911111,
   "exportDir":"",
-  "name":"sndStuck",
+  "name":"sndWindowBreak04",
   "parent":{
-    "name":"Temp",
-    "path":"folders/Sounds/SFX/Temp.yy",
+    "name":"Window",
+    "path":"folders/Sounds/SFX/Breakables/Window.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndStuck.ogg",
+  "soundFile":"sndWindowBreak04.wav",
   "volume":1.0,
 }

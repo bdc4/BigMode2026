@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sndStuck",
+  "%Name":"sndFireHydrantGeyser",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":2.5469387,
+  "duration":12.0,
   "exportDir":"",
-  "name":"sndStuck",
+  "name":"sndFireHydrantGeyser",
   "parent":{
-    "name":"Temp",
-    "path":"folders/Sounds/SFX/Temp.yy",
+    "name":"Breakables",
+    "path":"folders/Sounds/SFX/Breakables.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndStuck.ogg",
+  "soundFile":"sndFireHydrantGeyser.wav",
   "volume":1.0,
 }

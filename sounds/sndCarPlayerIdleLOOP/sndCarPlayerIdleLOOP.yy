@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sndWindowBreak09",
+  "%Name":"sndCarPlayerIdleLOOP",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":1.0178231,
+  "duration":3.6801586,
   "exportDir":"",
-  "name":"sndWindowBreak09",
+  "name":"sndCarPlayerIdleLOOP",
   "parent":{
-    "name":"Window",
-    "path":"folders/Sounds/SFX/Breakables/Window.yy",
+    "name":"Player",
+    "path":"folders/Sounds/SFX/Player.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndWindowBreak09.wav",
+  "soundFile":"sndCarPlayerIdleLOOP.wav",
   "volume":1.0,
 }

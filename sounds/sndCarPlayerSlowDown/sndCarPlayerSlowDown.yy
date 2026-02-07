@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sndFireHydrantGeyser",
+  "%Name":"sndCarPlayerSlowDown",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":12.0,
+  "duration":1.6246032,
   "exportDir":"",
-  "name":"sndFireHydrantGeyser",
+  "name":"sndCarPlayerSlowDown",
   "parent":{
-    "name":"Breakables",
-    "path":"folders/Sounds/SFX/Breakables.yy",
+    "name":"Player",
+    "path":"folders/Sounds/SFX/Player.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndFireHydrantGeyser.wav",
+  "soundFile":"sndCarPlayerSlowDown.wav",
   "volume":1.0,
 }

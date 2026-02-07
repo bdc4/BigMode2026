@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.79460317,
+  "duration":0.44365078,
   "exportDir":"",
   "name":"sndCarPlayerTurn03",
   "parent":{

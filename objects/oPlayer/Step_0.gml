@@ -150,7 +150,7 @@ if (!locked) {
          - (keyboard_check(vk_right) || keyboard_check(ord("D")));
 }
 
-if (turn) {
+if (keyboard_check_pressed(ord("A")) || keyboard_check_pressed(ord("D"))) {
 	var turnSounds = [sndCarPlayerTurn01,sndCarPlayerTurn02,sndCarPlayerTurn03,sndCarPlayerTurn04]
 	playingTurnSound = false;
 	array_foreach(turnSounds, function(snd) {

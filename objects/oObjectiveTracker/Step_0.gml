@@ -83,12 +83,28 @@ switch (global.progress) {
 			global.progress++;
 			d.dialog_show("Pizza Boss", "*slaps car* This baby can fit so many pepperonis!!\nYou know the drill: come pick up the pizzas and make more deliveries!", sPizzaDogPortrait, 0)
 		}
+		show_box = false;
 	break;
 	
-	case 8: // Earn $1000
-		if (oPlayer.money >= 500) {
+	case 8: // Earn $500
+		if (oPlayer.money >= 500 && show_box == false) {
+			show_box = true;
+			d.dialog_show("Pizza Boss", "Education is expensive but worth it!\nTake that $500 to the school and upgrade your Pizza Multiplier!\nYou'll get more money for each delivery.", sPizzaDogPortrait, 0)
+		}
+		if (oPlayer.multiplier > 1) {
 			global.progress++;
+			show_box = false;
 			d.dialog_show("Pizza Boss", "Word is spreading around Pizza Town!\nWe're getting quite popular.\nThat means we can start charging more for our pizzas!\nBut it also means our customers will have higher expectations!", sPizzaDogPortrait, 0)
+		}
+	break;
+	
+	case 9: // DO NOT EARN MORE THAN $9999
+		if (oPlayer.money >= 9999 && !show_box) {
+			d.dialog_show("Pizza Boss", "UH OH!\nYOU'RE TOO RICH FOR PIZZA TOWN!!!\nGET 'EM BOYS!\n(...I'll still keep the pizza coming though!)", sPizzaDogPortrait, 0)
+			global.police_chase = true;
+			with (oChaseFX) enabled = true;
+			show_box = true;
+			global.progress++;
 		}
 	break;
 	

@@ -23,7 +23,9 @@ global.objectives = [
 	// 8
 	"Earn $500 and upgrade your Pizza skills at the School",
 	// 9
-	"... Survive?"
+	"ABSOLUTELY DO NOT EARN MORE THAN $9999",
+	// 10
+	"Evade the police!"
 ];
 
 global.progress = 0;

@@ -1,2 +1,2 @@
-broken = false;
-sprite_index = type;
+//broken = false;
+//sprite_index = type;

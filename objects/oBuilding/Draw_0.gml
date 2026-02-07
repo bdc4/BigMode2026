@@ -10,5 +10,7 @@ if (is_target) {
 
 draw_self();
 
+if (debug_mode) {
 draw_set_color(c_black);
 draw_text(x, y, string(id));
+}

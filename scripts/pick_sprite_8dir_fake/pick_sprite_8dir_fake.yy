@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"pick_sprite_8dir_fake",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"pick_sprite_8dir_fake",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

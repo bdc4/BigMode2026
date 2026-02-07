@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sndPhone",
+  "%Name":"sndPhoneDogBark04",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.5311565,
+  "duration":0.3452154,
   "exportDir":"",
-  "name":"sndPhone",
+  "name":"sndPhoneDogBark04",
   "parent":{
     "name":"UI",
     "path":"folders/Sounds/SFX/UI.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndPhone.wav",
+  "soundFile":"sndPhoneDogBark04.wav",
   "volume":1.0,
 }

@@ -6,6 +6,7 @@ var line_gap = 4;
 
 // Text
 var header_text = "OBJECTIVE";
+global.current_objective = global.objectives[global.progress];
 var body_text   = global.current_objective;
 
 // Measure text

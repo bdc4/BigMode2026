@@ -9,9 +9,10 @@ var ammo_cur = ammo;
 var ammo_max = variable_instance_exists(self, "max_ammo") ? max_ammo : -1;
 
 // Layout constants
-var pad     = 12;
+var pad     = 32;
 var icon_sz = 24;
 var gap     = 8;
+var vgap    = 8; // space between ammo + money panels
 
 // Position (top-left)
 var x0 = pad;
@@ -23,7 +24,7 @@ var ammo_txt = (ammo_max >= 0)
     : string(ammo_cur);
 
 // Measure text
-draw_set_font(-1); // current font
+draw_set_font(-1);
 var tw = string_width(ammo_txt);
 var th = string_height(ammo_txt);
 
@@ -43,7 +44,7 @@ draw_sprite_ext(
     sPizza, 0,
     x0 + pad,
     y0 + bg_h * 0.5,
-    1, 1,
+    .5, .5,
     0,
     c_white,
     1
@@ -58,10 +59,67 @@ draw_text(
     ammo_txt
 );
 
+// ------------------------------------------------------------
+// MONEY (icon + text) — BELOW AMMO
+// ------------------------------------------------------------
+
+// Data (change this to your actual variable if different)
+var money_val = variable_instance_exists(self, "money") ? money : (variable_global_exists("money") ? global.money : 0);
+var money_txt = "$" + string(money_val);
+
+// Measure money text
+var mtw = string_width(money_txt);
+var mth = string_height(money_txt);
+
+// Money panel size (match ammo width for a clean stack)
+var m_bg_w = max(bg_w, pad + icon_sz + gap + mtw + pad);
+var m_bg_h = max(icon_sz, mth) + pad * 2;
+
+// Money panel position
+var mx0 = x0;
+var my0 = y0 + bg_h + vgap;
+
+// --- Background ---
+draw_set_alpha(0.6);
+draw_set_color(c_black);
+draw_rectangle(mx0, my0, mx0 + m_bg_w, my0 + m_bg_h, false);
+
+// --- Icon (swap this sprite if you have a coin sprite) ---
+draw_set_alpha(1);
+draw_set_color(c_white);
+draw_sprite_ext(
+    sSchoolFlag, 0, 
+    mx0 + pad,
+    my0 + m_bg_h * 0.5,
+    0.125, 0.125,
+    0,
+    c_white,
+    1
+);
+
+// --- Text ---
+draw_set_halign(fa_left);
+draw_set_valign(fa_middle);
+draw_text(
+    mx0 + pad + icon_sz + gap,
+    my0 + m_bg_h * 0.5,
+    money_txt
+);
+
 // Reset draw state
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_alpha(1);
+
+
+
+// ------------------------------------------------------------
+// (your existing off-screen arrow code continues below...)
+// ------------------------------------------------------------
+if (!variable_global_exists("target_building") || !instance_exists(global.target_building)) exit;
+
+// ... rest of your arrow code ...
+
 
 
 

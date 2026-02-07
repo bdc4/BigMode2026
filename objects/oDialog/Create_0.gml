@@ -47,17 +47,6 @@ function dialog_show(_speaker, _text, _portrait_sprite, _portrait_index)
     portrait_index  = _portrait_index;
 }
 
-
-function dialog_get()
-{
-    var d = instance_find(oDialog, 0);
-    if (d == noone) {
-        d = instance_create_layer(0, 0, "Instances", oDialog);
-        d.depth = -100000; // draw on top if you ever use Draw (not needed for GUI)
-    }
-    return d;
-}
-
 alarm[0] = 1;
 
 

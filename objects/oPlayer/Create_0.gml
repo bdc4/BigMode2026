@@ -98,7 +98,8 @@ bullet_charge_pow = 1.6;
 
 // resources
 ammo = 0;
-max_ammo = 1;
+max_ammo = 0;
+money = 0;
 
 
 // Demo mode

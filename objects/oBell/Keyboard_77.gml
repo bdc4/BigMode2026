@@ -1,0 +1,1 @@
+oPlayer.money += 10;

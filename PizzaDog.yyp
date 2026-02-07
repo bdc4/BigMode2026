@@ -80,6 +80,7 @@
     {"id":{"name":"PathTown","path":"paths/PathTown/PathTown.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"rPlayground","path":"rooms/rPlayground/rPlayground.yy",},},
+    {"id":{"name":"dialog_get","path":"scripts/dialog_get/dialog_get.yy",},},
     {"id":{"name":"explode_sprite_pixels","path":"scripts/explode_sprite_pixels/explode_sprite_pixels.yy",},},
     {"id":{"name":"pick_sprite_8dir_fake","path":"scripts/pick_sprite_8dir_fake/pick_sprite_8dir_fake.yy",},},
     {"id":{"name":"pizza_explode","path":"scripts/pizza_explode/pizza_explode.yy",},},

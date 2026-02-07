@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sndCarPlayerTurn03",
+  "%Name":"sndPoliceCatchesPlayer",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.44365078,
+  "duration":1.785941,
   "exportDir":"",
-  "name":"sndCarPlayerTurn03",
+  "name":"sndPoliceCatchesPlayer",
   "parent":{
-    "name":"Player",
-    "path":"folders/Sounds/SFX/Player.yy",
+    "name":"SFX",
+    "path":"folders/Sounds/SFX.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndCarPlayerTurn03.wav",
+  "soundFile":"sndPoliceCatchesPlayer.wav",
   "volume":1.0,
 }

@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sndCarPlayerTurn03",
+  "%Name":"sndPoliceSirenLOOP",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.44365078,
+  "duration":11.874536,
   "exportDir":"",
-  "name":"sndCarPlayerTurn03",
+  "name":"sndPoliceSirenLOOP",
   "parent":{
-    "name":"Player",
-    "path":"folders/Sounds/SFX/Player.yy",
+    "name":"SFX",
+    "path":"folders/Sounds/SFX.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndCarPlayerTurn03.wav",
+  "soundFile":"sndPoliceSirenLOOP.wav",
   "volume":1.0,
 }

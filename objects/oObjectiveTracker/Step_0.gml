@@ -38,8 +38,15 @@ switch (global.progress) {
 		oa = [_fh.x, _fh.y + sprite_get_height(_fh.sprite_index),
 		_fh.x + sprite_get_width(_fh.sprite_index),  _fh.y + sprite_get_height(_fh.sprite_index)*2
 		]
+		
+		if (!show_box && (collision_rectangle(oa[0], oa[1], oa[2], oa[3], oPlayer, false, false))) {
+			d.dialog_show("Pizza Boss", "Click on the FUNeral Home!", sPizzaDogPortrait, 0)
+			show_box = true;
+		}
+		
 		if (collision_rectangle(oa[0], oa[1], oa[2], oa[3], oBullet, false, false)) {
 			global.progress++;
+			show_box = false;
 			d.dialog_show("Pizza Boss", "Nice job!\nCome back and get more pizza.", sPizzaDogPortrait, 0)
 		}
 	break;
@@ -55,8 +62,10 @@ switch (global.progress) {
 	break;
 	
 	case 5: // EARN $100
-		if (oPlayer.money >= 100) {
+		if (oPlayer.money >= 100 && !show_box) {
 			d.dialog_show("Pizza Boss", "Nice deliveries!\nNow that you've earned $100, you should upgrade your Pizza Storage!\nThat way you don't have to keep driving back here for every single pizza!\n...Not that I mind the company <3", sPizzaDogPortrait, 0)
+			show_box = true;
+			global.progress++;
 		}
 		
 	break;
@@ -65,6 +74,7 @@ switch (global.progress) {
 		if (oPlayer.max_ammo > 1) {
 			global.progress++;
 			d.dialog_show("Pizza Boss", "So much room for deliveries!\nThe pizza (and the customers!) are waiting for you!", sPizzaDogPortrait, 0)
+			show_box = false;
 		}
 	break;
 	
@@ -76,7 +86,7 @@ switch (global.progress) {
 	break;
 	
 	case 8: // Earn $1000
-		if (oPlayer.money >= 1000) {
+		if (oPlayer.money >= 500) {
 			global.progress++;
 			d.dialog_show("Pizza Boss", "Word is spreading around Pizza Town!\nWe're getting quite popular.\nThat means we can start charging more for our pizzas!\nBut it also means our customers will have higher expectations!", sPizzaDogPortrait, 0)
 		}

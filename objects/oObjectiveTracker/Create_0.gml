@@ -1,12 +1,13 @@
 
 oa = [0,0,0,0]
 park_timer = 0;
+show_box = false;
 
 global.objectives = [
 	// 0
 	"Park in front of Pizza Dog.",
 	// 1
-	"Park in front of the Auto Repair shop.\n-- Open the menu and upgrade your Pizza Storage",
+	"Go to the the Auto Repair shop and upgrade your Pizza Storage",
 	// 2
 	"Pick up the Pizza from Pizza Dog",
 	// 3
@@ -20,7 +21,7 @@ global.objectives = [
 	// 7
 	"Upgrade your Pizza Storage to 3",
 	// 8
-	"Earn $1000",
+	"Earn $500 and upgrade your Pizza skills at the School",
 	// 9
 	"... Survive?"
 ];

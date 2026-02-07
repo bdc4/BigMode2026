@@ -29,7 +29,10 @@ function bounce_launch_away(_hit, _impact_speed)
     var out_speed = max(_impact_speed, min_bounce_speed) * bounce_loss;
     hsp = nx * out_speed;
     vsp = ny * out_speed;
+
+    return [nx, ny];
 }
+
 
 function is_on_drivable()
 {
@@ -44,6 +47,14 @@ function is_on_drivable()
 
     return false;
 }
+
+function nearest_parallel(_ang, _tangent)
+{
+    var a1 = (_tangent mod 360 + 360) mod 360;
+    var a2 = (a1 + 180) mod 360;
+    return (abs(angle_difference(a1, _ang)) <= abs(angle_difference(a2, _ang))) ? a1 : a2;
+}
+
 
 
 // ============================================================
@@ -139,6 +150,19 @@ if (!locked) {
          - (keyboard_check(vk_right) || keyboard_check(ord("D")));
 }
 
+if (turn) {
+	var turnSounds = [sndCarPlayerTurn01,sndCarPlayerTurn02,sndCarPlayerTurn03,sndCarPlayerTurn04]
+	playingTurnSound = false;
+	array_foreach(turnSounds, function(snd) {
+		if (audio_is_playing(snd)) {
+			playingTurnSound = true;
+		}
+	});
+	if (!playingTurnSound) {
+		audio_play_sound(choose(sndCarPlayerTurn01,sndCarPlayerTurn02,sndCarPlayerTurn03,sndCarPlayerTurn04),1,0)
+	}
+}
+
 // ============================================================
 // TURNING
 // ============================================================
@@ -222,6 +246,9 @@ if (steps < 1) steps = 1;
 
 var dx = hsp / steps;
 var dy = vsp / steps;
+var crash_nx = 0;
+var crash_ny = 0;
+
 
 for (var i = 0; i < steps; i++)
 {
@@ -234,7 +261,11 @@ for (var i = 0; i < steps; i++)
             x -= dx;
 
             var impact_speed = point_distance(0, 0, hsp, vsp);
-            bounce_launch_away(hit, impact_speed);
+			var n = bounce_launch_away(hit, impact_speed);
+			crash_nx = n[0];
+			crash_ny = n[1];
+
+
 
             dx = hsp / steps;
             dy = vsp / steps;
@@ -250,7 +281,9 @@ for (var i = 0; i < steps; i++)
             y -= dy;
 
             var impact_speed2 = point_distance(0, 0, hsp, vsp);
-            bounce_launch_away(hit2, impact_speed2);
+            var n2 = bounce_launch_away(hit2, impact_speed2);
+			crash_nx = n2[0];
+			crash_ny = n2[1];
 
             dx = hsp / steps;
             dy = vsp / steps;
@@ -265,7 +298,9 @@ var final_hit = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom
 if (final_hit != noone) {
     crashed = true;
     var impact_speed3 = max(impact_vlen, min_bounce_speed);
-    bounce_launch_away(final_hit, impact_speed3);
+    var n3 = bounce_launch_away(final_hit, impact_speed3);
+	crash_nx = n3[0];
+	crash_ny = n3[1];
 }
 
 // ============================================================
@@ -280,11 +315,21 @@ if (crashed)
 
     var spin_threshold = 0.75;
     if (r >= spin_threshold && spin_time <= 0) {
-        var t = clamp((r - spin_threshold) / (1 - spin_threshold), 0, 1);
-        spin_time = spin_time_max;
-        spin_dir = choose(-1, 1);
-        spin_start_rate = lerp(18, 60, t);
-    }
+	    var t = clamp((r - spin_threshold) / (1 - spin_threshold), 0, 1);
+	    spin_time = spin_time_max;
+	    spin_dir = choose(-1, 1);
+	    spin_start_rate = lerp(18, 60, t);
+
+	    // ---- compute wall-parallel end facing ----
+	    // If we hit a vertical wall, normal is ±X => tangent is 90 (up/down)
+	    // If we hit a horizontal wall, normal is ±Y => tangent is 0 (left/right)
+	    var tangent = 0;
+	    if (crash_nx != 0) tangent = 90;
+	    else if (crash_ny != 0) tangent = 0;
+
+	    spin_end_facing  = nearest_parallel(facing, tangent);
+	    spin_align_valid = true;
+	}
 
     hsp *= 0.85;
     vsp *= 0.85;
@@ -305,8 +350,15 @@ if (spin_time > 0) {
     if (spin_time <= 0) {
         spin_time = 0;
         spin_start_rate = 0;
+
+        // ---- snap to wall-parallel orientation ----
+        if (spin_align_valid) {
+            facing = spin_end_facing;
+            spin_align_valid = false;
+        }
     }
 }
+
 
 // ============================================================
 // SMOOTH VISUAL FACING + SPRITE PICK
@@ -409,3 +461,5 @@ else {
     shoot_charging = false;
     shoot_charge = 0;
 }
+
+time_since_delivery++;

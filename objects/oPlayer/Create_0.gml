@@ -30,6 +30,8 @@ bounce_loss = 1; // 1 = perfect bounce, 0.5 = very soft
 min_bounce_speed = 0.2; // below this, stop bouncing
 crash_timer = 0;
 crash_lock_frames = 18; // tune: 6–14 feels good
+spin_end_facing = 0;
+spin_align_valid = false;
 
 
 
@@ -100,7 +102,8 @@ bullet_charge_pow = 1.6;
 ammo = 0;
 max_ammo = 0;
 money = 0;
-
+money_start = 0;
+money_diff = 0;
 
 // Demo mode
 demo_mode = true;
@@ -114,4 +117,14 @@ demo_throttle = 0.35;      // accel strength per step
 demo_drag = 0.06;          // should match your drag feel
 demo_snap = 0.10;          // how hard we "pull" back toward the path
 
+// Headlights
+headlight_on     = false;
+headlight_len    = 100;   // how far the beam reaches
+headlight_w_near = 8;    // width near the car
+headlight_w_far  = 32;    // width at the end
+headlight_alpha  = 0.25;  // overall strength
 
+
+time_since_delivery = 0;
+tooltip_timer = 0;
+multiplier = 1;

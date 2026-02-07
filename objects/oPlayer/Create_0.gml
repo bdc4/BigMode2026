@@ -17,7 +17,7 @@ hsp = 0;
 vsp = 0;
 
 engine_accel = 1.4;   // thrust per step while holding Space
-max_speed    = 16.0;    // clamps total velocity magnitude
+max_speed    = 10.0;    // clamps total velocity magnitude
 drag         = 0.08;   // general friction/air resistance
 turn_rate    = 7;    // degrees per step
 
@@ -39,11 +39,13 @@ tip_angle_offset = 0;
 
 smoke_tick = -1;
 
+space_held = false;
+
 
 // skid
 skid_spacing = 5;
-wheel_offset = 6;
-wheel_back = 6;
+wheel_offset = 16;
+wheel_back = 16;
 skid_life = 45;
 skid_width = 2;
 

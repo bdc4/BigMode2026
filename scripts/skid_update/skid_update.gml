@@ -79,6 +79,11 @@ function skid_update(_player, _turn, _vlen, _offroad)
 				if (irandom(3) == 3) {
 					instance_destroy(segR);
 				}
+				if (!audio_is_playing(sndStuck) && !demo_mode) audio_play_sound(sndStuck,1,0);
+			}
+			else {
+				if (!audio_is_playing(sndLurch) && irandom(10) == 10 && !demo_mode) audio_play_sound(sndLurch,1,0);
+				if (audio_is_playing(sndStuck)) audio_stop_sound(sndStuck);
 			}
         }
     } else {

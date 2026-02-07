@@ -7,28 +7,24 @@
 // ============================================================
 function bounce_launch_away(_hit, _impact_speed)
 {
-    // Player bbox (current)
     var pL = bbox_left,  pR = bbox_right, pT = bbox_top, pB = bbox_bottom;
 
-    // Solid bbox
     var sL = _hit.bbox_left, sR = _hit.bbox_right, sT = _hit.bbox_top, sB = _hit.bbox_bottom;
 
-    // Overlaps (penetration depth)
     var oL = pR - sL;
     var oR = sR - pL;
     var oT = pB - sT;
     var oB = sB - pT;
 
-    // Choose smallest push => wall normal
     var mino = min(min(oL, oR), min(oT, oB));
 
     var nx = 0, ny = 0;
     var push = 1;
 
-    if (mino == oL) { nx = -1; x -= oL + push; }
+    if (mino == oL)      { nx = -1; x -= oL + push; }
     else if (mino == oR) { nx =  1; x += oR + push; }
     else if (mino == oT) { ny = -1; y -= oT + push; }
-    else { ny =  1; y += oB + push; }
+    else                 { ny =  1; y += oB + push; }
 
     var out_speed = max(_impact_speed, min_bounce_speed) * bounce_loss;
     hsp = nx * out_speed;
@@ -49,24 +45,22 @@ function is_on_drivable()
     return false;
 }
 
-// 8-direction sprite pick with "fake" diagonals via ±45° rotation
-// NOTE: If NE/SE feel swapped, flip the signs on the ±45 cases.
 function pick_sprite_8dir_fake(_ang)
 {
     var a  = (_ang mod 360 + 360) mod 360;
-    var d8 = (floor((a + 22.5) / 45)) mod 8; // 0=E,1=NE,2=N,3=NW,4=W,5=SW,6=S,7=SE
+    var d8 = (floor((a + 22.5) / 45)) mod 8;
 
-    image_angle = 0; // reset every step
+    image_angle = 0;
 
     switch (d8) {
         case 0: sprite_index = spr_right; image_angle = 0;    break; // E
-        case 1: sprite_index = spr_up; image_angle = -45;  break; // NE
+        case 1: sprite_index = spr_up;    image_angle = -45;  break; // NE
         case 2: sprite_index = spr_up;    image_angle = 0;    break; // N
-        case 3: sprite_index = spr_up;  image_angle = 45;   break; // NW
+        case 3: sprite_index = spr_up;    image_angle = 45;   break; // NW
         case 4: sprite_index = spr_left;  image_angle = 0;    break; // W
         case 5: sprite_index = spr_down;  image_angle = -45;  break; // SW
         case 6: sprite_index = spr_down;  image_angle = 0;    break; // S
-        case 7: sprite_index = spr_down; image_angle = 45;   break; // SE
+        case 7: sprite_index = spr_down;  image_angle = 45;   break; // SE
     }
 }
 
@@ -75,7 +69,6 @@ function pick_sprite_8dir_fake(_ang)
 // ============================================================
 if (instance_exists(oPopupMenu)) exit;
 
-// Cache offroad once per step
 var offroad = !is_on_drivable();
 
 // ============================================================
@@ -83,10 +76,9 @@ var offroad = !is_on_drivable();
 // ============================================================
 if (demo_mode)
 {
-    // press space to take control immediately
     if (keyboard_check_pressed(vk_space)) {
         demo_mode = false;
-        // fall through into normal logic this same frame
+        // fall through this frame
     } else {
 
         var plen = max(1, path_get_length(demo_path));
@@ -138,9 +130,7 @@ if (demo_mode)
         var demo_turn = choose(-1, 0, 1);
         skid_update(self, demo_turn, vlen_demo, offroad);
 
-        // 8-dir pick + diagonals
         pick_sprite_8dir_fake(visual_facing);
-
         exit;
     }
 }
@@ -151,15 +141,21 @@ if (demo_mode)
 var spinning = (spin_time > 0);
 locked = (crash_timer > 0) || spinning;
 
-var throttle = (!locked) && keyboard_check(vk_space);
+if (crash_timer > 0) crash_timer -= 1;
+
+// --- Reverse tuning ---
+var reverse_mul        = 0.35; // max reverse speed = max_speed * this
+var reverse_accel_mul  = 0.60; // reverse acceleration = engine_accel * this
+
+// --- Inputs ---
+var forward_down = (!locked) && keyboard_check(vk_space);
+var reverse_down = (!locked) && (keyboard_check(vk_control) || keyboard_check(vk_lcontrol) || keyboard_check(vk_rcontrol));
 
 var turn = 0;
 if (!locked) {
     turn = (keyboard_check(vk_left)  || keyboard_check(ord("A")))
          - (keyboard_check(vk_right) || keyboard_check(ord("D")));
 }
-
-if (crash_timer > 0) crash_timer -= 1;
 
 // ============================================================
 // TURNING
@@ -172,12 +168,28 @@ if (turn != 0) {
 facing = (facing mod 360 + 360) mod 360;
 
 // ============================================================
-// THRUST
+// THRUST (forward + reverse)
 // ============================================================
-if (throttle) {
-    var thrust_dir = facing + tip_angle_offset;
+var thrust_dir = facing + tip_angle_offset;
+
+if (forward_down) {
     hsp += lengthdir_x(engine_accel, thrust_dir);
     vsp += lengthdir_y(engine_accel, thrust_dir);
+	if (!space_held) audio_play_sound(sndVroom,1,0);
+	space_held = true;
+	audio_stop_sound(sndReverse)
+}
+else if (reverse_down) {
+    // Reverse thrust is opposite direction + weaker
+    var rev_dir = thrust_dir + 180;
+    var rev_acc = engine_accel * reverse_accel_mul;
+
+    hsp += lengthdir_x(rev_acc, rev_dir);
+    vsp += lengthdir_y(rev_acc, rev_dir);
+	
+	if (!audio_is_playing(sndReverse)) audio_play_sound(sndReverse,1,0)
+} else {
+	space_held = false;
 }
 
 // ============================================================
@@ -196,14 +208,24 @@ if (offroad) {
 }
 
 // ============================================================
-// CLAMP SPEED
+// CLAMP SPEED (forward + reverse)
 // ============================================================
 var vlen = point_distance(0, 0, hsp, vsp);
-if (vlen > max_speed) {
-    var s = max_speed / vlen;
+
+var max_fwd = max_speed;
+var max_rev = max_speed * reverse_mul;
+
+// If we're mostly moving "backwards" relative to facing, clamp to reverse max.
+// Compute signed speed along forward axis:
+var forward_v = hsp * lengthdir_x(1, thrust_dir) + vsp * lengthdir_y(1, thrust_dir);
+var limit = max_fwd;
+if (forward_v < 0) limit = max_rev;
+
+if (vlen > limit) {
+    var s = limit / vlen;
     hsp *= s;
     vsp *= s;
-    vlen = max_speed;
+    vlen = limit;
 }
 
 // ============================================================
@@ -252,6 +274,9 @@ for (var i = 0; i < steps; i++)
             dy = vsp / steps;
         }
     }
+	if (crashed) {
+		if (!audio_is_playing(sndSpinout)) audio_play_sound(sndSpinout,1,0)
+	}
 }
 
 var final_hit = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, oWall, false, true);
@@ -302,7 +327,7 @@ if (spin_time > 0) {
 }
 
 // ============================================================
-// SMOOTH VISUAL FACING + SPRITE PICK (8-dir + diagonals)
+// SMOOTH VISUAL FACING + SPRITE PICK
 // ============================================================
 var diff = angle_difference(facing, visual_facing);
 visual_facing += diff * turn_speed;
@@ -385,7 +410,7 @@ if (!locked)
             var dist = point_distance(bx, by, tx, ty);
             var ft = max(1, ceil(dist / bspd));
 
-            var b = instance_create_layer(bx, by, layer, oBullet);
+            var b = instance_create_layer(bx, by, "GUI", oBullet);
             b.target_id   = target;
             b.dest_x      = tx;
             b.dest_y      = ty;

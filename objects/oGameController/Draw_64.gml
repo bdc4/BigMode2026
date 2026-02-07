@@ -5,7 +5,7 @@ var box_pad  = 10;
 var line_gap = 4;
 
 // Text
-var header_text = "OBJECTIVE";
+var header_text = "OBJECTIVE: ("  + string(global.progress+1) + " / 10)";
 global.current_objective = global.objectives[global.progress];
 var body_text   = global.current_objective;
 

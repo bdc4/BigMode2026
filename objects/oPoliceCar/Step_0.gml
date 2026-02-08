@@ -84,19 +84,8 @@ function pick_nearest_broken()
     //}
 
     // Do it without "with" to avoid older-GMS scoping pain:
-    var inst = instance_find(oBreakable, 0);
-    var i = 0;
-    while (inst != noone)
-    {
-        if (is_breakable_broken(inst)) {
-            var d2 = point_distance(x, y, inst.x, inst.y);
-            if (d2 < best_d) { best_d = d2; best = inst; }
-        }
-        i++;
-        inst = instance_find(oBreakable, i);
-    }
-
-    return best;
+    var inst = instance_find(oPlayer, 0);
+    return inst;
 }
 
 function astar_path(_sx, _sy, _gx, _gy)
@@ -256,7 +245,7 @@ function astar_path(_sx, _sy, _gx, _gy)
 // Validate target
 // ------------------------------------------------------------
 if (target_id != noone) {
-    if (!instance_exists(target_id) || !is_breakable_broken(target_id)) {
+    if (!instance_exists(target_id)) {
         target_id = noone;
         state = 0;
         has_park = false;
@@ -273,6 +262,12 @@ if (repath_cooldown > 0) repath_cooldown--;
 // ------------------------------------------------------------
 // STATE 0: FIND
 // ------------------------------------------------------------
+// build path to park point
+        var p = astar_path(x, y, park_x, park_y);
+        path_x = p[0];
+        path_y = p[1];
+        path_i = 0;
+
 if (state == 0)
 {
     target_id = pick_nearest_broken();
@@ -292,7 +287,7 @@ if (state == 0)
         has_park = true;
 
         // build path to park point
-        var p = astar_path(x, y, park_x, park_y);
+        p = astar_path(x, y, park_x, park_y);
         path_x = p[0];
         path_y = p[1];
         path_i = 0;
@@ -347,17 +342,17 @@ if (state == 1)
     }
 
     // repath occasionally if stuck (optional)
-    //if (repath_cooldown <= 0 && array_length(path_x) > 0 && path_i < array_length(path_x)) {
-    //    // if the next node is blocked now, repath
-    //    // (cheap check at node)
-    //    if (collision_point(path_x[path_i], path_y[path_i], oWall, false, false) != noone) {
-    //        var p2 = astar_path(x, y, park_x, park_y);
-    //        path_x = p2[0];
-    //        path_y = p2[1];
-    //        path_i = 0;
-    //        repath_cooldown = room_speed * 0.5;
-    //    }
-    //}
+	//if (repath_cooldown <= 0 && array_length(path_x) > 0 && path_i < array_length(path_x)) {
+	//    // if the next node is blocked now, repath
+	//    // (cheap check at node)
+	//    if (collision_point(path_x[path_i], path_y[path_i], oWall, false, false) != noone) {
+	//        var p2 = astar_path(x, y, park_x, park_y);
+	//        path_x = p2[0];
+	//        path_y = p2[1];
+	//        path_i = 0;
+	//        repath_cooldown = room_speed * 0.5;
+	//    }
+	//}
 
     pick_sprite_8dir_fake(facing_angle);
     exit;
@@ -368,6 +363,8 @@ if (state == 1)
 // ------------------------------------------------------------
 if (state == 2)
 {
+	state = 0;
+	exit;
     // face the breakable while repairing (optional nice look)
     if (target_id != noone && instance_exists(target_id)) {
         //var bc = breakable_center(target_id);

@@ -57,6 +57,7 @@
   "name":"PizzaDog",
   "resources":[
     {"id":{"name":"fntMain","path":"fonts/fntMain/fntMain.yy",},},
+    {"id":{"name":"oAchievements","path":"objects/oAchievements/oAchievements.yy",},},
     {"id":{"name":"oBell","path":"objects/oBell/oBell.yy",},},
     {"id":{"name":"oBreakable","path":"objects/oBreakable/oBreakable.yy",},},
     {"id":{"name":"oBuilding","path":"objects/oBuilding/oBuilding.yy",},},
@@ -75,6 +76,7 @@
     {"id":{"name":"oPizzaSplatter","path":"objects/oPizzaSplatter/oPizzaSplatter.yy",},},
     {"id":{"name":"oPizzaStoragePowerup","path":"objects/oPizzaStoragePowerup/oPizzaStoragePowerup.yy",},},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
+    {"id":{"name":"oPoliceCar","path":"objects/oPoliceCar/oPoliceCar.yy",},},
     {"id":{"name":"oPopupMenu","path":"objects/oPopupMenu/oPopupMenu.yy",},},
     {"id":{"name":"oPowerup","path":"objects/oPowerup/oPowerup.yy",},},
     {"id":{"name":"oRepairTruck","path":"objects/oRepairTruck/oRepairTruck.yy",},},

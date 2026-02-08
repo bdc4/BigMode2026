@@ -3,10 +3,10 @@
 // =========================
 // SPRITES
 // =========================
-spr_right = sCarRepairRight;
-spr_left  = sCarRepairLeft;
-spr_up    = sCarRepairUpSizeAdjusted;
-spr_down  = sCarRepairDownSizeAdjusted;
+spr_right = sCarPoliceRight;
+spr_left  = sCarPoliceLeft;
+spr_up    = sCarPoliceUpSizeAdjusted;
+spr_down  = sCarPoliceDownSizeAdjusted;
 
 // =========================
 // HOME / STATE

@@ -22,5 +22,6 @@ sag = lerp(sag, sag_target, sag_smooth);
 // Final angle: lean with wind, add flutter, add sag downward
 image_angle = sway + flutter + sag;
 
+if !audio_is_playing(sndFlagLOOP) audio_play_sound_at(sndFlagLOOP,x,y,0,200,320,1,true,3)
 // Optional: subtle “flap” squish
 //scale_y = lerp(scale_y, 1 - 0.06 * sin(flutter_t * 0.55) * gust, 0.15);

@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sndCarRepairFixObjects",
+  "%Name":"sndMenuClose",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":2.0509977,
+  "duration":0.53882086,
   "exportDir":"",
-  "name":"sndCarRepairFixObjects",
+  "name":"sndMenuClose",
   "parent":{
-    "name":"SFX",
-    "path":"folders/Sounds/SFX.yy",
+    "name":"UI",
+    "path":"folders/Sounds/SFX/UI.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndCarRepairFixObjects.wav",
+  "soundFile":"sndMenuClose.wav",
   "volume":1.0,
 }

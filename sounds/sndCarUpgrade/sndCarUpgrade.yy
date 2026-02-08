@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sndCarRepairFixObjects",
+  "%Name":"sndCarUpgrade",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":2.0509977,
+  "duration":0.59417236,
   "exportDir":"",
-  "name":"sndCarRepairFixObjects",
+  "name":"sndCarUpgrade",
   "parent":{
     "name":"SFX",
     "path":"folders/Sounds/SFX.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndCarRepairFixObjects.wav",
+  "soundFile":"sndCarUpgrade.wav",
   "volume":1.0,
 }

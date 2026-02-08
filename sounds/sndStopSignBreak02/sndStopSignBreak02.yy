@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sndCarPlayerTurnGrass02",
+  "%Name":"sndStopSignBreak02",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.73888886,
+  "duration":0.53718823,
   "exportDir":"",
-  "name":"sndCarPlayerTurnGrass02",
+  "name":"sndStopSignBreak02",
   "parent":{
-    "name":"Player",
-    "path":"folders/Sounds/SFX/Player.yy",
+    "name":"Stop Sign",
+    "path":"folders/Sounds/SFX/Breakables/Stop Sign.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndCarPlayerTurnGrass02.wav",
+  "soundFile":"sndStopSignBreak02.wav",
   "volume":1.0,
 }

@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sndCarPlayerTurnGrass02",
+  "%Name":"sndMailboxBreak03",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.73888886,
+  "duration":0.7804762,
   "exportDir":"",
-  "name":"sndCarPlayerTurnGrass02",
+  "name":"sndMailboxBreak03",
   "parent":{
-    "name":"Player",
-    "path":"folders/Sounds/SFX/Player.yy",
+    "name":"Mailbox",
+    "path":"folders/Sounds/SFX/Breakables/Mailbox.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndCarPlayerTurnGrass02.wav",
+  "soundFile":"sndMailboxBreak03.wav",
   "volume":1.0,
 }

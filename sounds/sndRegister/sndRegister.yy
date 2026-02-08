@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndRegister",
   "parent":{
-    "name":"SFX",
-    "path":"folders/Sounds/SFX.yy",
+    "name":"Temp",
+    "path":"folders/Sounds/SFX/Temp.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

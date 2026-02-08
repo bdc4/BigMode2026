@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sndCarRepairDrivingLOOP",
+  "%Name":"sndPizzaPickup",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":11.933786,
+  "duration":0.6012925,
   "exportDir":"",
-  "name":"sndCarRepairDrivingLOOP",
+  "name":"sndPizzaPickup",
   "parent":{
-    "name":"Other Cars and Objects",
-    "path":"folders/Sounds/SFX/Other Cars and Objects.yy",
+    "name":"Player",
+    "path":"folders/Sounds/SFX/Player.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndCarRepairDrivingLOOP.wav",
+  "soundFile":"sndPizzaPickup.wav",
   "volume":1.0,
 }

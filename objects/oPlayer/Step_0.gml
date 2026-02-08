@@ -184,9 +184,11 @@ var thrust_dir = facing + tip_angle_offset;
 if (forward_down) {
     hsp += lengthdir_x(engine_accel, thrust_dir);
     vsp += lengthdir_y(engine_accel, thrust_dir);
-	if (!space_held) audio_play_sound(sndVroom,1,0);
+	if (!space_held) audio_play_sound(sndCarPlayerSpeedUp,1,0);
 	space_held = true;
-	audio_stop_sound(sndReverse)
+	audio_stop_sound(sndCarPlayerReverseLOOP)
+	audio_stop_sound(sndCarPlayerIdleLOOP)
+	if (!audio_is_playing(sndCarPlayerDrivingLOOP)) audio_play_sound(sndCarPlayerDrivingLOOP,1,true)
 }
 else if (reverse_down) {
     // Reverse thrust is opposite direction + weaker
@@ -196,9 +198,12 @@ else if (reverse_down) {
     hsp += lengthdir_x(rev_acc, rev_dir);
     vsp += lengthdir_y(rev_acc, rev_dir);
 	
-	if (!audio_is_playing(sndReverse)) audio_play_sound(sndReverse,1,0)
+	if (!audio_is_playing(sndCarPlayerReverseLOOP)) audio_play_sound(sndCarPlayerReverseLOOP,1,true)
 } else {
 	space_held = false;
+	audio_stop_sound(sndCarPlayerReverseLOOP)
+	audio_stop_sound(sndCarPlayerDrivingLOOP)
+	if (!audio_is_playing(sndCarPlayerIdleLOOP)) audio_play_sound(sndCarPlayerIdleLOOP,1,true)
 }
 
 // ============================================================

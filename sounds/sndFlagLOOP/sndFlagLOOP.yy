@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndFlagLOOP",
   "parent":{
-    "name":"SFX",
-    "path":"folders/Sounds/SFX.yy",
+    "name":"Other Cars and Objects",
+    "path":"folders/Sounds/SFX/Other Cars and Objects.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

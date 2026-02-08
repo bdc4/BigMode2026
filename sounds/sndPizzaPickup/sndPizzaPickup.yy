@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndPizzaPickup",
   "parent":{
-    "name":"SFX",
-    "path":"folders/Sounds/SFX.yy",
+    "name":"Player",
+    "path":"folders/Sounds/SFX/Player.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

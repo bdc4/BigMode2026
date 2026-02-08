@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sndRegister",
+  "%Name":"sndCarPlayerSpinout",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":3.1869388,
+  "duration":1.0413378,
   "exportDir":"",
-  "name":"sndRegister",
+  "name":"sndCarPlayerSpinout",
   "parent":{
-    "name":"Temp",
-    "path":"folders/Sounds/SFX/Temp.yy",
+    "name":"Player",
+    "path":"folders/Sounds/SFX/Player.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndRegister.mp3",
+  "soundFile":"sndCarPlayerSpinout.wav",
   "volume":1.0,
 }

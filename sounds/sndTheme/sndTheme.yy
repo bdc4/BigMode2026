@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":157.44,
+  "duration":86.666664,
   "exportDir":"",
   "name":"sndTheme",
   "parent":{
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndTheme.mp3",
-  "volume":0.1,
+  "soundFile":"sndTheme.wav",
+  "volume":1.0,
 }

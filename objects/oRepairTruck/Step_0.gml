@@ -1,4 +1,4 @@
-if (!audio_is_playing(sndCarRepairDrivingLOOP)) audio_play_sound_at(sndCarRepairDrivingLOOP,x,y,0,150,600,1,false,1)
+if (!audio_is_playing(sndCarRepairDrivingLOOP) && !oPlayer.demo_mode) audio_play_sound_at(sndCarRepairDrivingLOOP,x,y,0,150,600,1,false,1)
 
 // ------------------------------------------------------------
 // Helpers

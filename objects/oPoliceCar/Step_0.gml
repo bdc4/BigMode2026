@@ -1,4 +1,4 @@
-if (!audio_is_playing(sndCarRepairDrivingLOOP)) audio_play_sound_at(sndCarRepairDrivingLOOP,x,y,0,150,600,1,false,1)
+if (!audio_is_playing(sndPoliceSirenLOOP)) audio_play_sound(sndPoliceSirenLOOP,1,true)
 
 if (spawn_timer == spawn_timer_max) {
 	if (instance_number(oPoliceCar) < 12)

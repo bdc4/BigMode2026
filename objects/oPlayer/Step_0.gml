@@ -301,7 +301,9 @@ for (var i = 0; i < steps; i++)
         }
     }
 	if (crashed) {
-		if (!audio_is_playing(sndSpinout)) audio_play_sound(sndSpinout,1,0)
+		if (!audio_is_playing(sndCarPlayerSpinout01) && !audio_is_playing(sndCarPlayerSpinout02)) {
+			audio_play_sound(choose(sndCarPlayerSpinout01,sndCarPlayerSpinout02),1,0)
+		}
 	}
 }
 

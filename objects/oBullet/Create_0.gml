@@ -22,3 +22,5 @@ inherit_drag = 0.0; // set to 0.02..0.08 if you want the inherited momentum to f
 
 x_start = x;
 y_start = y;
+
+audio_play_sound(choose(sndPizzaThrow01,sndPizzaThrow02),2,false)

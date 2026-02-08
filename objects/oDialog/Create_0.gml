@@ -45,6 +45,8 @@ function dialog_show(_speaker, _text, _portrait_sprite, _portrait_index)
 
     portrait_sprite = _portrait_sprite;
     portrait_index  = _portrait_index;
+	
+	audio_play_sound(sndPhone, 1, false);
 }
 
 alarm[0] = 1;

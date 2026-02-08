@@ -30,6 +30,9 @@ if (use_typewriter) {
 if (shown_chars >= string_length(cur)) {
     // line fully visible, start counting
     line_timer += 1;
+	
+	var b = choose(sndPhoneDogBark01,sndPhoneDogBark02,sndPhoneDogBark03,sndPhoneDogBark04,sndPhoneDogBark05,sndPhoneDogBark06,sndPhoneDogBark07,sndPhoneDogBark08)
+	if (irandom(3) == 3) audio_play_sound(b,3,false);
 
     if (line_timer >= auto_advance_time) {
         // move to next line

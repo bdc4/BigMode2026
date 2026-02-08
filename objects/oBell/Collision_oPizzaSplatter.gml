@@ -6,3 +6,5 @@ instance_destroy(other.id);
 audio_play_sound_at(sndBell,x,y,0,400,800,1,false,2,1,0,1+random(1))
 
 oPlayer.money += 1;
+
+oAchievements.achievement_set_progress("bell", 1)

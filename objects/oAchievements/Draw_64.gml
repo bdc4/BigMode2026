@@ -1,10 +1,47 @@
 /// oAchievement : Draw GUI
-if (popup == noone || oPlayer.demo_mode) exit;
-
 var gw = display_get_gui_width();
 var gh = display_get_gui_height();
 var xR = gw - ui_pad;
 var yT = gh - ui_h - ui_v_pad;
+
+if (oPlayer.demo_mode) exit;
+
+if (playerHover) {
+	
+	draw_text(x,y,"Hold SHIFT to view Achievements!")
+	
+	if (keyboard_check(vk_shift)) {
+		draw_set_colour(c_black)
+		draw_rectangle(0,0,gw,gh,false);
+		draw_set_colour(c_white)
+		draw_set_font(fntMain)
+		
+		// for each achievement, draw here
+		var _keys = ["bib","cook","bell","bby","rts"]
+		offset = 0;
+		array_foreach(_keys, function(_key) {
+			var a = ds_map_find_value(ach, _key);
+			
+			var _title = a.title;
+			var _desc = a.desc;
+			var _unlocked = a.unlocked;
+			var _color = _unlocked ? c_lime : c_red;
+			
+			var __text = string(a.title) + "\n" + string(_unlocked ? string(a.desc) : "???");
+			
+			draw_text_colour(120, 120 + offset, __text,_color,_color,_color,_color,1)
+			offset += 120;
+		})
+	}
+}
+
+// reset
+draw_set_alpha(1);
+draw_set_color(c_white);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+
+if (popup == noone || oPlayer.demo_mode) exit;
 
 // slide + fade
 var a = 1;

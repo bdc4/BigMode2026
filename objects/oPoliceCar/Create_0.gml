@@ -71,3 +71,6 @@ debug_draw_path = false;
 start_x = x;
 start_y = y;
 
+spawn_timer_max = room_speed * 2;
+spawn_timer = 0;
+alive_timer = 0;

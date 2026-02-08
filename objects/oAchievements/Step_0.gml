@@ -28,3 +28,11 @@ else
         if (snd_unlock != -1) audio_play_sound(snd_unlock, 1, false);
     }
 }
+
+
+if (place_meeting(x,y,oPlayer)) {
+	playerHover = true;
+	show_debug_message("PLAYER HOVER")
+} else {
+	playerHover = false;
+}

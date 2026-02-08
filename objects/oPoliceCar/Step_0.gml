@@ -1,5 +1,20 @@
 if (!audio_is_playing(sndCarRepairDrivingLOOP)) audio_play_sound_at(sndCarRepairDrivingLOOP,x,y,0,150,600,1,false,1)
 
+if (spawn_timer == spawn_timer_max) {
+	if (instance_number(oPoliceCar) < 12)
+		instance_create_layer(start_x,start_y,layer,oPoliceCar)
+	else {
+		oPoliceCar.max_speed = 20;
+	}
+}
+spawn_timer++;
+
+if (alive_timer < room_speed * 20) {
+	alive_timer++;
+} else {
+	oAchievements.achievement_set_progress("bby", 1)
+}
+
 // ------------------------------------------------------------
 // Helpers
 // ------------------------------------------------------------

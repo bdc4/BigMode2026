@@ -7,6 +7,10 @@ if (wasBroken != broken) {
 			passiveSound = audio_play_sound_at(sndFireHydrantBreakGeyserLOOP,x,y,0,100,220,1,true,2)
 		}
 		oPlayer.money += 1;
+		
+		if (place_meeting(x,y,INSTANCE_PIZZA_DOG) && object_index == oWindow) {
+			oAchievements.achievement_set_progress("rts", 1)
+		}
 	}
 	
 	else if (!broken && wasBroken) { // CHANGED FROM BROKEN TO UNBROKEN (REPAIRED)

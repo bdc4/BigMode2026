@@ -29,9 +29,9 @@ function ach_add(_key, _spr, _title, _desc, _goal)
 //ach_add("fix_5",   sWrench, "Handyman", "Repair 5 objects.", 5);
 ach_add("bib", sPizza, "Backwards is Best", "Deliver a Pizza while in Reverse.", 1);
 ach_add("cook", sPizza, "We Need to Cook...", "Throw a Pizza on Walter's House.", 1);
-ach_add("bell", sPizza, "Pizza Bell", "Ring the school bell 3 times within 5 seconds", 1);
-ach_add("bby", sPizza, "Not even close, baby", "Outrun the Police for 60 Seconds", 1);
-ach_add("rts", sPizza, "Return to Sender","\"Return\" a Pizza to Pizza Dog.", 1);
+ach_add("bell", sSchoolBell, "Pizza Bell", "Ring the school bell.", 1);
+ach_add("bby", sCarPoliceRight, "Not even close, baby", "Outrun the Police for 60 Seconds", 1);
+ach_add("rts", sPizzaDogPortrait, "Return to Sender","\"Return\" a Pizza to Pizza Dog.", 1);
 
 // -------------------------
 // Popup queue + animation
@@ -51,7 +51,7 @@ ui_h = 84;
 ui_v_pad = 300;
 
 // optional: sound
-snd_unlock = -1; // set to your sound if you want
+snd_unlock = sndAchievement;
 
 /// achievement_add_progress(key, amount)
 function achievement_add_progress(_key, _amt)
@@ -122,6 +122,4 @@ function queue_popup(_spr, _title, _desc)
 }
 
 
-// TESTING
-
-achievement_set_progress("money_1000", 1000)
+playerHover = false;

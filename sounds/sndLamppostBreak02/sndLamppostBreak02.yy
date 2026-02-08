@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sndCarPlayerTurnGrass02",
+  "%Name":"sndLamppostBreak02",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.73888886,
+  "duration":0.6785261,
   "exportDir":"",
-  "name":"sndCarPlayerTurnGrass02",
+  "name":"sndLamppostBreak02",
   "parent":{
-    "name":"Player",
-    "path":"folders/Sounds/SFX/Player.yy",
+    "name":"Lampost",
+    "path":"folders/Sounds/SFX/Breakables/Lampost.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndCarPlayerTurnGrass02.wav",
+  "soundFile":"sndLamppostBreak02.wav",
   "volume":1.0,
 }

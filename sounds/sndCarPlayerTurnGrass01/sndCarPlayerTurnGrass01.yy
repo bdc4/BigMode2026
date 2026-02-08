@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":2.2592516,
+  "duration":0.88786846,
   "exportDir":"",
   "name":"sndCarPlayerTurnGrass01",
   "parent":{

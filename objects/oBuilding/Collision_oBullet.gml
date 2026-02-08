@@ -17,4 +17,8 @@ if (wantsPizza) {
 	oPlayer.time_since_delivery = 0;
 	
 	wantsPizza = false;
+	
+	if (keyboard_check(vk_control)) {
+		oAchievements.achievement_set_progress("bib", 1)
+	}
 }

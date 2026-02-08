@@ -92,7 +92,7 @@ draw_sprite_ext(
     0.25,    // y scale
     dir,    // rotation
     c_white,
-    1
+    demo_mode ? 0 : 1
 	//(abs(hsp + vsp)) / max_speed
 );
 

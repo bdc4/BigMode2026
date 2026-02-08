@@ -1,1 +1,1 @@
-oPlayer.money += 10;
+oPlayer.money += 1000;

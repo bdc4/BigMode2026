@@ -18,3 +18,7 @@ tongue_damp   = 0.85;   // how quickly it settles
 tongue_max    = 30;     // max tongue swing (degrees)
 
 event_inherited()
+
+
+bell_timer = 0;
+bell_counter = 0;

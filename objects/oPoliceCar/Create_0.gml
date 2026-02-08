@@ -3,10 +3,10 @@
 // =========================
 // SPRITES
 // =========================
-spr_right = sCarRepairRight;
-spr_left  = sCarRepairLeft;
-spr_up    = sCarRepairUpSizeAdjusted;
-spr_down  = sCarRepairDownSizeAdjusted;
+spr_right = sCarPoliceRight;
+spr_left  = sCarPoliceLeft;
+spr_up    = sCarPoliceUpSizeAdjusted;
+spr_down  = sCarPoliceDownSizeAdjusted;
 
 // =========================
 // HOME / STATE
@@ -71,3 +71,6 @@ debug_draw_path = false;
 start_x = x;
 start_y = y;
 
+spawn_timer_max = room_speed * 2;
+spawn_timer = 0;
+alive_timer = 0;

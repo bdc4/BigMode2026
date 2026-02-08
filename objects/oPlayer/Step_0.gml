@@ -204,6 +204,9 @@ else if (reverse_down) {
 	audio_stop_sound(sndCarPlayerReverseLOOP)
 	audio_stop_sound(sndCarPlayerDrivingLOOP)
 	if (!audio_is_playing(sndCarPlayerIdleLOOP)) audio_play_sound(sndCarPlayerIdleLOOP,1,true)
+	if (keyboard_check_released(vk_space)) {
+		if (!audio_is_playing(sndCarPlayerSlowDown)) audio_play_sound(sndCarPlayerSlowDown,1,false)
+	}
 }
 
 // ============================================================

@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sndAchievement",
+  "%Name":"sndMenuClose",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.83444446,
+  "duration":0.53882086,
   "exportDir":"",
-  "name":"sndAchievement",
+  "name":"sndMenuClose",
   "parent":{
     "name":"UI",
     "path":"folders/Sounds/SFX/UI.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndAchievement.wav",
+  "soundFile":"sndMenuClose.wav",
   "volume":1.0,
 }

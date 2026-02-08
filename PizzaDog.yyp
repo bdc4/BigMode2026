@@ -123,6 +123,8 @@
     {"id":{"name":"sndMailboxBreak01","path":"sounds/sndMailboxBreak01/sndMailboxBreak01.yy",},},
     {"id":{"name":"sndMailboxBreak02","path":"sounds/sndMailboxBreak02/sndMailboxBreak02.yy",},},
     {"id":{"name":"sndMailboxBreak03","path":"sounds/sndMailboxBreak03/sndMailboxBreak03.yy",},},
+    {"id":{"name":"sndMenuClose","path":"sounds/sndMenuClose/sndMenuClose.yy",},},
+    {"id":{"name":"sndMenuOpen","path":"sounds/sndMenuOpen/sndMenuOpen.yy",},},
     {"id":{"name":"sndMoneyEarned","path":"sounds/sndMoneyEarned/sndMoneyEarned.yy",},},
     {"id":{"name":"sndPhone","path":"sounds/sndPhone/sndPhone.yy",},},
     {"id":{"name":"sndPhoneDogBark01","path":"sounds/sndPhoneDogBark01/sndPhoneDogBark01.yy",},},

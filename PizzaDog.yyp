@@ -215,6 +215,7 @@
     {"id":{"name":"sPizzaBox","path":"sprites/sPizzaBox/sPizzaBox.yy",},},
     {"id":{"name":"sPizzaDog16x16","path":"sprites/sPizzaDog16x16/sPizzaDog16x16.yy",},},
     {"id":{"name":"sPizzaDog64x64","path":"sprites/sPizzaDog64x64/sPizzaDog64x64.yy",},},
+    {"id":{"name":"sPizzaDogJail","path":"sprites/sPizzaDogJail/sPizzaDogJail.yy",},},
     {"id":{"name":"sPizzaDogPortrait","path":"sprites/sPizzaDogPortrait/sPizzaDogPortrait.yy",},},
     {"id":{"name":"sPizzaDogTitle256x256","path":"sprites/sPizzaDogTitle256x256/sPizzaDogTitle256x256.yy",},},
     {"id":{"name":"sPizzaSplatter","path":"sprites/sPizzaSplatter/sPizzaSplatter.yy",},},

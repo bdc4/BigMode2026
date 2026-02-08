@@ -27,7 +27,7 @@ if (playerHover) {
 			
 			var __text = string(a.title) + "\n" + string(_unlocked ? string(a.desc) : "???");
 			
-			draw_text_colour(120, 120 + offset, __text,_color,_color,_color,_color,1)
+			draw_text_colour(180, 120 + offset, __text,_color,_color,_color,_color,1)
 			offset += 120;
 		})
 	}

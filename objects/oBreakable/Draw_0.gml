@@ -4,16 +4,42 @@ var newSprite = noone;
 
 if (broken && sprite_index == type) {
 	// check if sXxxBroken or sXxxBusted exists
-	var name = sprite_get_name(sprite_index);
-	var check = asset_get_index(string(name+"Busted"));
-	if (!check) {
-		var err = "no Broken or Busted sprite found for sprite: " + name;
+	//var name = sprite_get_name(sprite_index);
+	//var check = asset_get_index(string(name+"Busted"));
+	//if (!check) {
+	//	var err = "no Broken or Busted sprite found for sprite: " + name;
 			
-		if (debug_mode) show_error(err, false)
-		else show_debug_message(err);
-	} else {
-		// if (irandom(1) == 1) image_xscale = -1;
-		newSprite = asset_get_index(check);
+	//	if (debug_mode) show_error(err, false)
+	//	else show_debug_message(err);
+	//} else {
+	//	// if (irandom(1) == 1) image_xscale = -1;
+	//	newSprite = asset_get_index(check);
+	//}
+	switch sprite_index {
+		case sFireHydrant:
+			newSprite = sFireHydrantBusted;
+		break;
+		case sMailbox:
+			newSprite = sMailboxBusted;
+		break;
+		case sStopSign:
+			newSprite = sStopSignBusted;
+		break;
+		case sStreetlight:
+			newSprite = sStreetlightBusted;
+		break;
+		case sWindowSmallLeft:
+			newSprite = sWindowSmallLeftBusted;
+		break;
+		case sWindowSmallRight:
+			newSprite = sWindowSmallRightBusted;
+		break;
+		case sWindowLargeLeft:
+			newSprite = sWindowLargeLeftBusted;
+		break;
+		case sWindowLargeRight:
+			newSprite = sWindowLargeRightBusted;
+		break;
 	}
 }
 

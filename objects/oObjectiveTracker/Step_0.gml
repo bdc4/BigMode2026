@@ -98,8 +98,8 @@ switch (global.progress) {
 		}
 	break;
 	
-	case 9: // DO NOT EARN MORE THAN $9999
-		if (oPlayer.money >= 9999) {
+	case 9: // DO NOT EARN MORE THAN $5000
+		if (oPlayer.money >= 5000) {
 			if (!show_box)
 				d.dialog_show("Pizza Boss", "UH OH!\nYOU'RE TOO RICH FOR PIZZA TOWN!!!\nGET 'EM BOYS!\n(...I'll still keep the pizza coming though!)", sPizzaDogPortrait, 0)
 			global.police_chase = true;

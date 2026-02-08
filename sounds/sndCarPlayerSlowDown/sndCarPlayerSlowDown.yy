@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":1.6246032,
+  "duration":1.0216327,
   "exportDir":"",
   "name":"sndCarPlayerSlowDown",
   "parent":{

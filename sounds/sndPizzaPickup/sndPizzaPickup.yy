@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.6012925,
+  "duration":0.26557824,
   "exportDir":"",
   "name":"sndPizzaPickup",
   "parent":{

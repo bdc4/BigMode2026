@@ -376,8 +376,13 @@ if (state == 2)
     }
     repair_t += 1;
 
+	if (!audio_is_playing(sndCarRepairFixObjects)) {
+			audio_play_sound_at(sndCarRepairFixObjects,target_id.x,target_id.y,0,150,600,1,false,1)
+	}
+			
     if (repair_t >= repair_time)
     {
+		
         // perform repair
         if (target_id != noone && instance_exists(target_id)) {
             with (target_id) {

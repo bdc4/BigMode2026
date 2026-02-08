@@ -70,3 +70,5 @@ debug_draw_path = false;
 
 start_x = x;
 start_y = y;
+
+audio_play_sound_at(sndCarRepairDrivingLOOP,x,y,0,150,600,1,true,1)

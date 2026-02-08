@@ -2,6 +2,9 @@
 /// Driving + effects + hard no-overlap + crash lock + high-speed spin-out
 /// Includes demo autopilot + 8-dir fake diagonals (±45°) + target-shot
 
+audio_listener_orientation(x,y,0,0,0,0);
+audio_listener_set_position(0,x,y,0);
+
 // ============================================================
 // Helpers
 // ============================================================
@@ -463,3 +466,4 @@ else {
 }
 
 time_since_delivery++;
+

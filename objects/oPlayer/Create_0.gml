@@ -128,3 +128,6 @@ headlight_alpha  = 0.25;  // overall strength
 time_since_delivery = 0;
 tooltip_timer = 0;
 multiplier = 1;
+
+
+audio_falloff_set_model(audio_falloff_linear_distance)

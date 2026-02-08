@@ -10,3 +10,17 @@ if (type == noone && sprite_index == noone) {
 	type = sprite_index;
 }
 
+var t = [
+		[sFireHydrant, sndFireHydrantBreak],
+		[sMailbox, choose(sndMailboxBreak01,sndMailboxBreak02,sndMailboxBreak03)],
+		[sStopSign, choose(sndStopSignBreak01,sndStopSignBreak02,sndStopSignBreak03)],
+		[sStreetlight, choose(sndLamppostBreak01,sndLamppostBreak02,sndLamppostBreak03)]
+	]
+
+array_foreach(t, function(i) {
+	if (type == i[0]) {
+		brokenSound = i[1];
+	}
+})
+
+passiveSound = noone;

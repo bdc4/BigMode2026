@@ -111,6 +111,8 @@
     {"id":{"name":"sndCarPlayerReverseLOOP","path":"sounds/sndCarPlayerReverseLOOP/sndCarPlayerReverseLOOP.yy",},},
     {"id":{"name":"sndCarPlayerSlowDown","path":"sounds/sndCarPlayerSlowDown/sndCarPlayerSlowDown.yy",},},
     {"id":{"name":"sndCarPlayerSpeedUp","path":"sounds/sndCarPlayerSpeedUp/sndCarPlayerSpeedUp.yy",},},
+    {"id":{"name":"sndCarPlayerSpinout01","path":"sounds/sndCarPlayerSpinout01/sndCarPlayerSpinout01.yy",},},
+    {"id":{"name":"sndCarPlayerSpinout02","path":"sounds/sndCarPlayerSpinout02/sndCarPlayerSpinout02.yy",},},
     {"id":{"name":"sndCarPlayerTurn01","path":"sounds/sndCarPlayerTurn01/sndCarPlayerTurn01.yy",},},
     {"id":{"name":"sndCarPlayerTurn02","path":"sounds/sndCarPlayerTurn02/sndCarPlayerTurn02.yy",},},
     {"id":{"name":"sndCarPlayerTurn03","path":"sounds/sndCarPlayerTurn03/sndCarPlayerTurn03.yy",},},

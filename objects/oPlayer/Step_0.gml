@@ -154,15 +154,29 @@ if (!locked) {
 }
 
 if (keyboard_check_pressed(ord("A")) || keyboard_check_pressed(ord("D"))) {
-	var turnSounds = [sndCarPlayerTurn01,sndCarPlayerTurn02,sndCarPlayerTurn03,sndCarPlayerTurn04]
-	playingTurnSound = false;
-	array_foreach(turnSounds, function(snd) {
-		if (audio_is_playing(snd)) {
-			playingTurnSound = true;
+	if (is_on_drivable()){
+		var turnSounds = [sndCarPlayerTurn01,sndCarPlayerTurn02,sndCarPlayerTurn03,sndCarPlayerTurn04]
+		playingTurnSound = false;
+		array_foreach(turnSounds, function(snd) {
+			if (audio_is_playing(snd)) {
+				playingTurnSound = true;
+			}
+		});
+		if (!playingTurnSound) {
+			audio_play_sound(choose(sndCarPlayerTurn01,sndCarPlayerTurn02,sndCarPlayerTurn03,sndCarPlayerTurn04),1,0)
 		}
-	});
-	if (!playingTurnSound) {
-		audio_play_sound(choose(sndCarPlayerTurn01,sndCarPlayerTurn02,sndCarPlayerTurn03,sndCarPlayerTurn04),1,0)
+	}
+	else {
+		var turnSounds = [sndCarPlayerTurnGrass01,sndCarPlayerTurnGrass02]
+		playingTurnSound = false;
+		array_foreach(turnSounds, function(snd) {
+			if (audio_is_playing(snd)) {
+				playingTurnSound = true;
+			}
+		});
+		if (!playingTurnSound) {
+			audio_play_sound(choose(sndCarPlayerTurnGrass01,sndCarPlayerTurnGrass02),1,0)
+		}
 	}
 }
 

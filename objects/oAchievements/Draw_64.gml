@@ -7,14 +7,12 @@ var yT = gh - ui_h - ui_v_pad;
 if (oPlayer.demo_mode) exit;
 
 if (playerHover) {
-	
-	draw_text(x,y,"Hold SHIFT to view Achievements!")
-	
 	if (keyboard_check(vk_shift)) {
 		draw_set_colour(c_black)
 		draw_rectangle(0,0,gw,gh,false);
 		draw_set_colour(c_white)
 		draw_set_font(fntMain)
+		draw_set_halign(fa_left)
 		
 		// for each achievement, draw here
 		var _keys = ["bib","cook","bell","bby","rts"]
@@ -34,12 +32,6 @@ if (playerHover) {
 		})
 	}
 }
-
-// reset
-draw_set_alpha(1);
-draw_set_color(c_white);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
 
 if (popup == noone || oPlayer.demo_mode) exit;
 

@@ -125,6 +125,7 @@
     {"id":{"name":"sndFireHydrantBreak","path":"sounds/sndFireHydrantBreak/sndFireHydrantBreak.yy",},},
     {"id":{"name":"sndFireHydrantBreakGeyserLOOP","path":"sounds/sndFireHydrantBreakGeyserLOOP/sndFireHydrantBreakGeyserLOOP.yy",},},
     {"id":{"name":"sndFlagLOOP","path":"sounds/sndFlagLOOP/sndFlagLOOP.yy",},},
+    {"id":{"name":"sndGameOver","path":"sounds/sndGameOver/sndGameOver.yy",},},
     {"id":{"name":"sndGoodBoy","path":"sounds/sndGoodBoy/sndGoodBoy.yy",},},
     {"id":{"name":"sndLamppostBreak01","path":"sounds/sndLamppostBreak01/sndLamppostBreak01.yy",},},
     {"id":{"name":"sndLamppostBreak02","path":"sounds/sndLamppostBreak02/sndLamppostBreak02.yy",},},

@@ -1,5 +1,4 @@
-if broken == false
+if broken == false && !oPlayer.demo_mode
 {
 	broken = true;
-	if brokenSound audio_play_sound(brokenSound,1,false);
 }
